@@ -4,17 +4,17 @@ project:
 book:
   title: "Advance data analytics course"
   author: "Andrés Pérez-Coronado"
-  date: "08/02/2025"
+  date: "02/08/2025"
   chapters:
     - index.qmd
-    - 1.Issue for Decision-Making.qmd
-    - 2.Key Players and Topics.qmd
-    - 3.Collecting and Connecting Data.qmd
-    - 4.Spotting Weak Predict Signals.qmd
-    - 5.Data Storage and Traceability.qmd
-    - 6.Interpreting Weak Predictive Signals.qmd    
-    - 7.Planning and Taking Action.qmd
-    - 8.Monitoring and Assessing Progress.qmd
+    - 1. Issue for Decision-Making.qmd
+    - 2. Key Players and Topics.qmd
+    - 3. Collecting and Connecting Data.qmd
+    - 4. Spotting Weak Predict Signals.qmd
+    - 5. Data Storage and Traceability.qmd
+    - 6. Interpreting Weak Predictive Signals.qmd    
+    - 7. Planning and Taking Action.qmd
+    - 8. Monitoring and Assessing Progress.qmd
     - references.qmd
 
 bibliography: references.bib
