@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Advance data analytics course",
+    "title": "Octogonal Decision Platform",
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
@@ -122,6 +122,36 @@
   {
     "objectID": "3. Collecting and Connecting Data.html",
     "href": "3. Collecting and Connecting Data.html",
+    "title": "3  Collecting and Connecting Data",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Collecting and Connecting Data</span>"
+    ]
+  },
+  {
+    "objectID": "1-Issue-for-Decision-Making.html",
+    "href": "1-Issue-for-Decision-Making.html",
+    "title": "1  Issue for Decision-Making",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Issue for Decision-Making</span>"
+    ]
+  },
+  {
+    "objectID": "2-Key-Players-and-Topics.html",
+    "href": "2-Key-Players-and-Topics.html",
+    "title": "2  Key Players and Topics",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Key Players and Topics</span>"
+    ]
+  },
+  {
+    "objectID": "3-Collecting-and-Connecting-Data.html",
+    "href": "3-Collecting-and-Connecting-Data.html",
     "title": "3  Collecting and Connecting Data",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",

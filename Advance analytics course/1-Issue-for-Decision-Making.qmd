@@ -1,4 +1,4 @@
-# Issue for Decision-Making
+# Issue for Decision-Making {.numbered}
 
 This is a book created from markdown and executable code.
 
