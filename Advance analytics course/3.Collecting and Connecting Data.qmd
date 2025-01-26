@@ -1,0 +1,7 @@
+# Collecting and Connecting Data
+
+In summary, this book has no content whatsoever.
+
+```{r}
+1 + 1
+```
