@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "Octogonal Decision Platform"
+  title: "Advanced Data Analytics Course"
   author: "Andrés Pérez-Coronado"
   date: "02/08/2025"
   chapters:
