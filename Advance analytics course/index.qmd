@@ -1,9 +1,8 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+## Course schedule
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+## Evaluation activities
 
-```{r}
-1 + 1
-```
+## Rubric
+

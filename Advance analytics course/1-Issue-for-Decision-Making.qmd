@@ -2,3 +2,286 @@
 
 ## Exploratory Analysis of Multidimensional Data
 
+### Import data set, require packages and a short summary of data
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+# working directory
+#setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+# packages
+list_packages = c('readxl', 'dplyr', 'moments', 'tidyr', 'tibble', 'gt', 'ggplot2', 'fmsb')
+new.packages = list_packages[!(list_packages %in% installed.packages()[,"Package"])]
+if (length(new.packages)) {
+  install.packages(new.packages)
+}
+for (package in list_packages){
+  library(package, character.only = T)
+}
+
+# Load the dataset
+# Define the file path
+file_path <- paste0(getwd(),"/delitos_2024_v2.xlsx")
+
+# Load the specific sheet from the Excel file
+delitos_data <- read_excel(file_path, sheet = "2024")
+
+dim(delitos_data)
+summary(delitos_data)
+```
+
+### Skewness
+
+Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+
+$[
+g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+]$
+
+where:
+
+-   $( n )$: Number of observations,
+-   $( x_i )$: Individual data points,
+-   $( \bar{x} )$: Mean of the data,
+-   $( \sigma )$: Standard deviation of the data.
+
+A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# skewness
+delitos_data %>%
+  select(where(is.numeric)) %>%  # Select only numeric columns
+  summarise(across(everything(), ~ skewness(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(Skewness = V1) %>%
+  gt()
+```
+
+### Kurtosis
+
+Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+
+$[
+g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+]$
+
+where:
+
+-   $( n )$: Number of observations,
+-   $( x_i )$: Individual data points,
+-   $( \bar{x} )$: Mean of the data,
+-   $( \sigma )$: Standard deviation of the data.
+
+A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# kurtosis
+delitos_data %>%
+  select(where(is.numeric)) %>%  # Select only numeric columns
+  summarise(across(everything(), ~ kurtosis(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(Kurtosis = V1) %>%
+  gt()
+```
+
+### Variation
+
+Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+
+$[
+g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+]$
+
+where:
+
+-   $( n )$: Number of observations,
+-   $( x_i )$: Individual data points,
+-   $( \bar{x} )$: Mean of the data,
+-   $( \sigma )$: Standard deviation of the data.
+
+A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# variation
+delitos_data %>%
+  select(where(is.numeric)) %>%  # Select only numeric columns
+  summarise(
+    across(
+      everything(),
+      ~ ifelse(mean(.x, na.rm = TRUE) != 0, 
+               sd(.x, na.rm = TRUE) / mean(.x, na.rm = TRUE), 
+               NA),  # Compute CV safely
+      .names = "{col}"
+    )
+  ) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(Variation = V1) %>%
+  gt()
+```
+
+### Median Absolute Deviation MAD and MAD/median
+
+Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+
+$[
+g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+]$
+
+where:
+
+-   $( n )$: Number of observations,
+-   $( x_i )$: Individual data points,
+-   $( \bar{x} )$: Mean of the data,
+-   $( \sigma )$: Standard deviation of the data.
+
+A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# MAD
+delitos_data %>%
+  select(where(is.numeric)) %>%
+  summarise(across(everything(), ~ mad(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(MAD = V1) %>%
+  gt()
+
+# Standard Deviation (SD)
+delitos_data %>%
+  select(where(is.numeric)) %>%
+  summarise(across(everything(), ~ sd(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(SD = V1) %>%
+  gt()
+
+# MAD/Median
+delitos_data %>%
+  select(where(is.numeric)) %>%
+  summarise(across(everything(), ~ ifelse(
+    median(.x, na.rm = TRUE) != 0,
+    mad(.x, na.rm = TRUE) / median(.x, na.rm = TRUE),
+    NA
+  ))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(`MAD/Median` = V1) %>%
+  gt()
+
+delitos_data %>%
+  select(SEMOVIENTES, AUTOMOTORES, BANCOS, PIRATERIA) %>%
+  summary()
+```
+
+## Graphical analysis
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Load necessary library
+library(ggplot2)
+library(tidyr)
+
+# Transform the data to a long format for ggplot
+delitos_long <- delitos_data %>%
+  select(where(is.numeric)) %>%  # Select only numeric columns
+  pivot_longer(cols = everything(), names_to = "Crime Type", values_to = "Value")
+
+# Create faceted histograms
+ggplot(delitos_long, aes(x = Value)) +
+  geom_histogram(bins = 30, fill = "skyblue", color = "black", alpha = 0.7) +
+  facet_wrap(~ `Crime Type`, scales = "free") +  # Facet by crime type
+  theme_minimal() +
+  labs(
+    title = "Distributions of Crime Data",
+    x = "Value",
+    y = "Frequency"
+  ) +
+  theme(
+    axis.text.x = element_text(size = 5)  # Reduce the font size of X-axis text
+  )
+```
+
+Log-transformed crime data distributions
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Transform the data to long format and apply log transformation
+delitos_long_log <- delitos_data %>%
+  select(where(is.numeric)) %>%
+  mutate(across(everything(), ~ log(.x), .names = "{col}")) %>%  # Log transform (log(x + 1) to avoid log(0))
+  pivot_longer(cols = everything(), names_to = "Crime Type", values_to = "Log Value")
+
+# Create faceted histograms for log-transformed values
+ggplot(delitos_long_log, aes(x = `Log Value`)) +
+  geom_histogram(bins = 30, fill = "skyblue", color = "black", alpha = 0.7) +
+  facet_wrap(~ `Crime Type`, scales = "free") +  # Facet by crime type
+  theme_minimal() +
+  labs(
+    title = "Log-Transformed Distributions of Crime Data",
+    x = "Log Value",
+    y = "Frequency"
+  ) +
+  theme(
+    axis.text.x = element_text(size = 3)  # Reduce the font size of X-axis text
+  )
+```
+
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Transform the data to long format and apply log transformation
+delitos_long_log <- delitos_data %>%
+  select(where(is.numeric)) %>%
+  mutate(across(everything(), ~ log(.x), .names = "{col}")) %>%  # Log transform (log(x + 1) to avoid log(0))
+  pivot_longer(cols = everything(), names_to = "Crime Type", values_to = "Log Value")
+
+# Create faceted histograms for log-transformed values
+ggplot(delitos_long_log, aes(x = `Log Value`)) +
+  geom_histogram(bins = 30, fill = "skyblue", color = "black", alpha = 0.7) +
+  facet_wrap(~ `Crime Type`, scales = "free") +  # Facet by crime type
+  theme_minimal() +
+  labs(
+    title = "Log-Transformed Distributions of Crime Data",
+    x = "Log Value",
+    y = "Frequency"
+  ) +
+  theme(
+    axis.text.x = element_text(size = 3)  # Reduce the font size of X-axis text
+  )
+```
