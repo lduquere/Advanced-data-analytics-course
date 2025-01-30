@@ -1,8 +1,8 @@
 # Issue for Decision-Making {.numbered}
 
-## Exploratory Analysis of Multidimensional Data
+# Exploratory Analysis of Multidimensional Data {.unnumbered}
 
-### Import data set, require packages and a short summary of data
+## Import Dataset, Load Required Packages, and Provide a Summary
 
 ```{r}
 #| echo: true
@@ -32,7 +32,7 @@ dim(delitos_data)
 summary(delitos_data)
 ```
 
-### Skewness
+## Skewness
 
 Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
 
@@ -65,12 +65,12 @@ delitos_data %>%
   gt()
 ```
 
-### Kurtosis
+## Kurtosis
 
-Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+Kurtosis measures the heaviness of the tails of a data distribution relative to a normal distribution. It is defined mathematically as:
 
 $[
-g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^4 \right] - \frac{3(n-1)^2}{(n-2)(n-3)}
 ]$
 
 where:
@@ -80,7 +80,7 @@ where:
 -   $( \bar{x} )$: Mean of the data,
 -   $( \sigma )$: Standard deviation of the data.
 
-A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+A kurtosis of $( 0 )$ (excess kurtosis) indicates tail behavior similar to a normal distribution. Positive kurtosis $( g_2 > 0 )$ signifies heavier tails and more outliers (leptokurtic), while negative kurtosis $( g_2 < 0 )$ indicates lighter tails and fewer outliers (platykurtic).
 
 ```{r}
 #| echo: true
@@ -98,27 +98,36 @@ delitos_data %>%
   gt()
 ```
 
-### Variation
 
-Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+## Coefficient of Variation
+
+The coefficient of variation (CV) measures the relative variability of a dataset, expressed as a percentage. It is defined mathematically as:
 
 $[
-g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 ]$
 
 where:
 
--   $( n )$: Number of observations,
--   $( x_i )$: Individual data points,
--   $( \bar{x} )$: Mean of the data,
--   $( \sigma )$: Standard deviation of the data.
+-   $( \sigma )$: Standard deviation of the data,
+-   $( \bar{x} )$: Mean of the data.
 
-A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+The coefficient of variation is particularly useful for comparing the variability of datasets with different units or widely different means. A lower CV indicates less variability relative to the mean, while a higher CV indicates greater variability.
 
 ```{r}
 #| echo: true
 #| message: false
 #| warning: false
+
+# Standard Deviation (SD)
+delitos_data %>%
+  select(where(is.numeric)) %>%
+  summarise(across(everything(), ~ sd(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  rename(SD = V1) %>%
+  gt()
 
 # variation
 delitos_data %>%
@@ -139,22 +148,26 @@ delitos_data %>%
   gt()
 ```
 
-### Median Absolute Deviation MAD and MAD/median
+## Median Absolute Deviation MAD and MAD/median
 
-Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+The Median Absolute Deviation (MAD) is a robust measure of variability that quantifies the dispersion of a dataset. It is defined as the median of the absolute deviations from the median of the data:
 
 $[
-g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
+\text{MAD} = \text{median} \left( \left| x_i - \text{median}(x) \right| \right)
 ]$
 
 where:
 
--   $( n )$: Number of observations,
--   $( x_i )$: Individual data points,
--   $( \bar{x} )$: Mean of the data,
--   $( \sigma )$: Standard deviation of the data.
+- \( x_i \): Individual data points,
+- \( \text{median}(x) \): Median of the data.
 
-A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+The MAD/Median ratio is a normalized measure of dispersion, calculated as:
+
+$[
+\text{MAD/Median} = \frac{\text{MAD}}{\text{median}(x)}
+]$
+
+This ratio provides a scale-independent measure of variability, making it useful for comparing the dispersion of datasets with different units or scales. A higher MAD/Median ratio indicates greater relative variability.
 
 ```{r}
 #| echo: true
@@ -169,16 +182,6 @@ delitos_data %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
   rename(MAD = V1) %>%
-  gt()
-
-# Standard Deviation (SD)
-delitos_data %>%
-  select(where(is.numeric)) %>%
-  summarise(across(everything(), ~ sd(.x, na.rm = TRUE))) %>%
-  t() %>%
-  as.data.frame() %>%
-  tibble::rownames_to_column(var = "Crime Type") %>%
-  rename(SD = V1) %>%
   gt()
 
 # MAD/Median
@@ -200,8 +203,9 @@ delitos_data %>%
   summary()
 ```
 
-## Graphical analysis
+# Graphical analysis {.numbered}
 
+## Distribution of Crime Data
 ```{r}
 #| echo: true
 #| message: false
@@ -231,7 +235,7 @@ ggplot(delitos_long, aes(x = Value)) +
   )
 ```
 
-Log-transformed crime data distributions
+## Log-Transformed Crime Data Distributions
 
 ```{r}
 #| echo: true
