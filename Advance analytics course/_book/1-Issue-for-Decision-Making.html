@@ -246,12 +246,14 @@ window.Quarto = {
   <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">1.3</span> Kurtosis</a></li>
   <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link" data-scroll-target="#coefficient-of-variation"><span class="header-section-number">1.4</span> Coefficient of Variation</a></li>
   <li><a href="#median-absolute-deviation-mad-and-madmedian" id="toc-median-absolute-deviation-mad-and-madmedian" class="nav-link" data-scroll-target="#median-absolute-deviation-mad-and-madmedian"><span class="header-section-number">1.5</span> Median Absolute Deviation MAD and MAD/median</a></li>
+  <li><a href="#covariance-matrix" id="toc-covariance-matrix" class="nav-link" data-scroll-target="#covariance-matrix"><span class="header-section-number">1.6</span> Covariance matrix</a></li>
   </ul></li>
-  <li><a href="#graphical-analysis" id="toc-graphical-analysis" class="nav-link" data-scroll-target="#graphical-analysis"><span class="header-section-number">2</span> Graphical analysis</a>
+  <li><a href="#graphical-analysis" id="toc-graphical-analysis" class="nav-link" data-scroll-target="#graphical-analysis">Graphical analysis</a>
   <ul class="collapse">
-  <li><a href="#distribution-of-crime-data" id="toc-distribution-of-crime-data" class="nav-link" data-scroll-target="#distribution-of-crime-data"><span class="header-section-number">2.1</span> Distribution of Crime Data</a></li>
-  <li><a href="#log-transformed-crime-data-distributions" id="toc-log-transformed-crime-data-distributions" class="nav-link" data-scroll-target="#log-transformed-crime-data-distributions"><span class="header-section-number">2.2</span> Log-Transformed Crime Data Distributions</a></li>
+  <li><a href="#distribution-of-crime-data" id="toc-distribution-of-crime-data" class="nav-link" data-scroll-target="#distribution-of-crime-data"><span class="header-section-number">1.7</span> Distribution of Crime Data</a></li>
+  <li><a href="#log-transformed-crime-data-distributions" id="toc-log-transformed-crime-data-distributions" class="nav-link" data-scroll-target="#log-transformed-crime-data-distributions"><span class="header-section-number">1.8</span> Log-Transformed Crime Data Distributions</a></li>
   </ul></li>
+  <li><a href="#hands-on-data-analysis" id="toc-hands-on-data-analysis" class="nav-link" data-scroll-target="#hands-on-data-analysis">Hands-on Data Analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -368,26 +370,27 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Crime Type"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Skewness =</span> V1) <span class="sc">%&gt;%</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">V1 =</span> <span class="fu">round</span>(V1, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Skewness =</span> V1) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="kcabetvjyg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kcabetvjyg table {
+<div id="qrhtuibnkl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qrhtuibnkl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kcabetvjyg thead, #kcabetvjyg tbody, #kcabetvjyg tfoot, #kcabetvjyg tr, #kcabetvjyg td, #kcabetvjyg th {
+#qrhtuibnkl thead, #qrhtuibnkl tbody, #qrhtuibnkl tfoot, #qrhtuibnkl tr, #qrhtuibnkl td, #qrhtuibnkl th {
   border-style: none;
 }
 
-#kcabetvjyg p {
+#qrhtuibnkl p {
   margin: 0;
   padding: 0;
 }
 
-#kcabetvjyg .gt_table {
+#qrhtuibnkl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -413,12 +416,12 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-left-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_caption {
+#qrhtuibnkl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kcabetvjyg .gt_title {
+#qrhtuibnkl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -430,7 +433,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-width: 0;
 }
 
-#kcabetvjyg .gt_subtitle {
+#qrhtuibnkl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -442,7 +445,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-top-width: 0;
 }
 
-#kcabetvjyg .gt_heading {
+#qrhtuibnkl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -454,13 +457,13 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_bottom_border {
+#qrhtuibnkl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_col_headings {
+#qrhtuibnkl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -475,7 +478,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_col_heading {
+#qrhtuibnkl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -495,7 +498,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   overflow-x: hidden;
 }
 
-#kcabetvjyg .gt_column_spanner_outer {
+#qrhtuibnkl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -507,15 +510,15 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 4px;
 }
 
-#kcabetvjyg .gt_column_spanner_outer:first-child {
+#qrhtuibnkl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kcabetvjyg .gt_column_spanner_outer:last-child {
+#qrhtuibnkl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kcabetvjyg .gt_column_spanner {
+#qrhtuibnkl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -527,11 +530,11 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   width: 100%;
 }
 
-#kcabetvjyg .gt_spanner_row {
+#qrhtuibnkl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kcabetvjyg .gt_group_heading {
+#qrhtuibnkl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -557,7 +560,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   text-align: left;
 }
 
-#kcabetvjyg .gt_empty_group_heading {
+#qrhtuibnkl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -572,15 +575,15 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   vertical-align: middle;
 }
 
-#kcabetvjyg .gt_from_md > :first-child {
+#qrhtuibnkl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kcabetvjyg .gt_from_md > :last-child {
+#qrhtuibnkl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kcabetvjyg .gt_row {
+#qrhtuibnkl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -599,7 +602,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   overflow-x: hidden;
 }
 
-#kcabetvjyg .gt_stub {
+#qrhtuibnkl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -612,7 +615,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#kcabetvjyg .gt_stub_row_group {
+#qrhtuibnkl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -626,15 +629,15 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   vertical-align: top;
 }
 
-#kcabetvjyg .gt_row_group_first td {
+#qrhtuibnkl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kcabetvjyg .gt_row_group_first th {
+#qrhtuibnkl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kcabetvjyg .gt_summary_row {
+#qrhtuibnkl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -644,16 +647,16 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#kcabetvjyg .gt_first_summary_row {
+#qrhtuibnkl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_first_summary_row.thick {
+#qrhtuibnkl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kcabetvjyg .gt_last_summary_row {
+#qrhtuibnkl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -663,7 +666,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_grand_summary_row {
+#qrhtuibnkl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -673,7 +676,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#kcabetvjyg .gt_first_grand_summary_row {
+#qrhtuibnkl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -683,7 +686,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-top-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_last_grand_summary_row_top {
+#qrhtuibnkl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -693,11 +696,11 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_striped {
+#qrhtuibnkl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kcabetvjyg .gt_table_body {
+#qrhtuibnkl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -706,7 +709,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_footnotes {
+#qrhtuibnkl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -720,7 +723,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_footnote {
+#qrhtuibnkl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -729,7 +732,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#kcabetvjyg .gt_sourcenotes {
+#qrhtuibnkl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -743,7 +746,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#kcabetvjyg .gt_sourcenote {
+#qrhtuibnkl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -751,72 +754,72 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#kcabetvjyg .gt_left {
+#qrhtuibnkl .gt_left {
   text-align: left;
 }
 
-#kcabetvjyg .gt_center {
+#qrhtuibnkl .gt_center {
   text-align: center;
 }
 
-#kcabetvjyg .gt_right {
+#qrhtuibnkl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kcabetvjyg .gt_font_normal {
+#qrhtuibnkl .gt_font_normal {
   font-weight: normal;
 }
 
-#kcabetvjyg .gt_font_bold {
+#qrhtuibnkl .gt_font_bold {
   font-weight: bold;
 }
 
-#kcabetvjyg .gt_font_italic {
+#qrhtuibnkl .gt_font_italic {
   font-style: italic;
 }
 
-#kcabetvjyg .gt_super {
+#qrhtuibnkl .gt_super {
   font-size: 65%;
 }
 
-#kcabetvjyg .gt_footnote_marks {
+#qrhtuibnkl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kcabetvjyg .gt_asterisk {
+#qrhtuibnkl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kcabetvjyg .gt_indent_1 {
+#qrhtuibnkl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kcabetvjyg .gt_indent_2 {
+#qrhtuibnkl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kcabetvjyg .gt_indent_3 {
+#qrhtuibnkl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kcabetvjyg .gt_indent_4 {
+#qrhtuibnkl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kcabetvjyg .gt_indent_5 {
+#qrhtuibnkl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#kcabetvjyg .katex-display {
+#qrhtuibnkl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#kcabetvjyg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qrhtuibnkl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -831,71 +834,71 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEXUALES</td>
-<td class="gt_row gt_right" headers="Skewness">7.596326</td>
+<td class="gt_row gt_right" headers="Skewness">7.60</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">EXTORSION</td>
-<td class="gt_row gt_right" headers="Skewness">5.971174</td>
+<td class="gt_row gt_right" headers="Skewness">5.97</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO</td>
-<td class="gt_row gt_right" headers="Skewness">4.229098</td>
+<td class="gt_row gt_right" headers="Skewness">4.23</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO_AT</td>
-<td class="gt_row gt_right" headers="Skewness">4.081334</td>
+<td class="gt_row gt_right" headers="Skewness">4.08</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEMOVIENTES</td>
-<td class="gt_row gt_right" headers="Skewness">4.632308</td>
+<td class="gt_row gt_right" headers="Skewness">4.63</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">AUTOMOTORES</td>
-<td class="gt_row gt_right" headers="Skewness">12.228396</td>
+<td class="gt_row gt_right" headers="Skewness">12.23</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">BANCOS</td>
-<td class="gt_row gt_right" headers="Skewness">9.642696</td>
+<td class="gt_row gt_right" headers="Skewness">9.64</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">COMERCIO</td>
-<td class="gt_row gt_right" headers="Skewness">6.349052</td>
+<td class="gt_row gt_right" headers="Skewness">6.35</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">MOTOCICLETAS</td>
-<td class="gt_row gt_right" headers="Skewness">5.836587</td>
+<td class="gt_row gt_right" headers="Skewness">5.84</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">PERSONAS</td>
-<td class="gt_row gt_right" headers="Skewness">7.976975</td>
+<td class="gt_row gt_right" headers="Skewness">7.98</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">PIRATERIA</td>
-<td class="gt_row gt_right" headers="Skewness">7.097872</td>
+<td class="gt_row gt_right" headers="Skewness">7.10</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">RESIDENCIAS</td>
-<td class="gt_row gt_right" headers="Skewness">6.235526</td>
+<td class="gt_row gt_right" headers="Skewness">6.24</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES_AT</td>
-<td class="gt_row gt_right" headers="Skewness">5.210738</td>
+<td class="gt_row gt_right" headers="Skewness">5.21</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES</td>
-<td class="gt_row gt_right" headers="Skewness">5.487627</td>
+<td class="gt_row gt_right" headers="Skewness">5.49</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SECUESTRO</td>
-<td class="gt_row gt_right" headers="Skewness">4.509626</td>
+<td class="gt_row gt_right" headers="Skewness">4.51</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">TERRORISMO</td>
-<td class="gt_row gt_right" headers="Skewness">10.751395</td>
+<td class="gt_row gt_right" headers="Skewness">10.75</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">INTRAFAMILIAR</td>
-<td class="gt_row gt_right" headers="Skewness">8.130638</td>
+<td class="gt_row gt_right" headers="Skewness">8.13</td>
 </tr>
 </tbody>
 </table>
@@ -926,26 +929,27 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Crime Type"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Kurtosis =</span> V1) <span class="sc">%&gt;%</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">V1 =</span> <span class="fu">round</span>(V1, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Kurtosis =</span> V1) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="ezcfexpkdk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ezcfexpkdk table {
+<div id="lwnjdjkltr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lwnjdjkltr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ezcfexpkdk thead, #ezcfexpkdk tbody, #ezcfexpkdk tfoot, #ezcfexpkdk tr, #ezcfexpkdk td, #ezcfexpkdk th {
+#lwnjdjkltr thead, #lwnjdjkltr tbody, #lwnjdjkltr tfoot, #lwnjdjkltr tr, #lwnjdjkltr td, #lwnjdjkltr th {
   border-style: none;
 }
 
-#ezcfexpkdk p {
+#lwnjdjkltr p {
   margin: 0;
   padding: 0;
 }
 
-#ezcfexpkdk .gt_table {
+#lwnjdjkltr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -971,12 +975,12 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-left-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_caption {
+#lwnjdjkltr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ezcfexpkdk .gt_title {
+#lwnjdjkltr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -988,7 +992,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-width: 0;
 }
 
-#ezcfexpkdk .gt_subtitle {
+#lwnjdjkltr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1000,7 +1004,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-top-width: 0;
 }
 
-#ezcfexpkdk .gt_heading {
+#lwnjdjkltr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1012,13 +1016,13 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_bottom_border {
+#lwnjdjkltr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_col_headings {
+#lwnjdjkltr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1033,7 +1037,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_col_heading {
+#lwnjdjkltr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1053,7 +1057,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   overflow-x: hidden;
 }
 
-#ezcfexpkdk .gt_column_spanner_outer {
+#lwnjdjkltr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1065,15 +1069,15 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 4px;
 }
 
-#ezcfexpkdk .gt_column_spanner_outer:first-child {
+#lwnjdjkltr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ezcfexpkdk .gt_column_spanner_outer:last-child {
+#lwnjdjkltr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ezcfexpkdk .gt_column_spanner {
+#lwnjdjkltr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1085,11 +1089,11 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   width: 100%;
 }
 
-#ezcfexpkdk .gt_spanner_row {
+#lwnjdjkltr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ezcfexpkdk .gt_group_heading {
+#lwnjdjkltr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1115,7 +1119,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   text-align: left;
 }
 
-#ezcfexpkdk .gt_empty_group_heading {
+#lwnjdjkltr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1130,15 +1134,15 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   vertical-align: middle;
 }
 
-#ezcfexpkdk .gt_from_md > :first-child {
+#lwnjdjkltr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ezcfexpkdk .gt_from_md > :last-child {
+#lwnjdjkltr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ezcfexpkdk .gt_row {
+#lwnjdjkltr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1157,7 +1161,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   overflow-x: hidden;
 }
 
-#ezcfexpkdk .gt_stub {
+#lwnjdjkltr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1170,7 +1174,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#ezcfexpkdk .gt_stub_row_group {
+#lwnjdjkltr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1184,15 +1188,15 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   vertical-align: top;
 }
 
-#ezcfexpkdk .gt_row_group_first td {
+#lwnjdjkltr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ezcfexpkdk .gt_row_group_first th {
+#lwnjdjkltr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ezcfexpkdk .gt_summary_row {
+#lwnjdjkltr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1202,16 +1206,16 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#ezcfexpkdk .gt_first_summary_row {
+#lwnjdjkltr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_first_summary_row.thick {
+#lwnjdjkltr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ezcfexpkdk .gt_last_summary_row {
+#lwnjdjkltr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1221,7 +1225,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_grand_summary_row {
+#lwnjdjkltr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1231,7 +1235,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#ezcfexpkdk .gt_first_grand_summary_row {
+#lwnjdjkltr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1241,7 +1245,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-top-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_last_grand_summary_row_top {
+#lwnjdjkltr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1251,11 +1255,11 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_striped {
+#lwnjdjkltr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ezcfexpkdk .gt_table_body {
+#lwnjdjkltr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1264,7 +1268,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_footnotes {
+#lwnjdjkltr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1278,7 +1282,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_footnote {
+#lwnjdjkltr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1287,7 +1291,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#ezcfexpkdk .gt_sourcenotes {
+#lwnjdjkltr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1301,7 +1305,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#ezcfexpkdk .gt_sourcenote {
+#lwnjdjkltr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1309,72 +1313,72 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#ezcfexpkdk .gt_left {
+#lwnjdjkltr .gt_left {
   text-align: left;
 }
 
-#ezcfexpkdk .gt_center {
+#lwnjdjkltr .gt_center {
   text-align: center;
 }
 
-#ezcfexpkdk .gt_right {
+#lwnjdjkltr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ezcfexpkdk .gt_font_normal {
+#lwnjdjkltr .gt_font_normal {
   font-weight: normal;
 }
 
-#ezcfexpkdk .gt_font_bold {
+#lwnjdjkltr .gt_font_bold {
   font-weight: bold;
 }
 
-#ezcfexpkdk .gt_font_italic {
+#lwnjdjkltr .gt_font_italic {
   font-style: italic;
 }
 
-#ezcfexpkdk .gt_super {
+#lwnjdjkltr .gt_super {
   font-size: 65%;
 }
 
-#ezcfexpkdk .gt_footnote_marks {
+#lwnjdjkltr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ezcfexpkdk .gt_asterisk {
+#lwnjdjkltr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ezcfexpkdk .gt_indent_1 {
+#lwnjdjkltr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ezcfexpkdk .gt_indent_2 {
+#lwnjdjkltr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ezcfexpkdk .gt_indent_3 {
+#lwnjdjkltr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ezcfexpkdk .gt_indent_4 {
+#lwnjdjkltr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ezcfexpkdk .gt_indent_5 {
+#lwnjdjkltr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ezcfexpkdk .katex-display {
+#lwnjdjkltr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ezcfexpkdk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lwnjdjkltr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1389,71 +1393,71 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEXUALES</td>
-<td class="gt_row gt_right" headers="Kurtosis">75.03185</td>
+<td class="gt_row gt_right" headers="Kurtosis">75.03</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">EXTORSION</td>
-<td class="gt_row gt_right" headers="Kurtosis">49.16431</td>
+<td class="gt_row gt_right" headers="Kurtosis">49.16</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO</td>
-<td class="gt_row gt_right" headers="Kurtosis">26.71778</td>
+<td class="gt_row gt_right" headers="Kurtosis">26.72</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO_AT</td>
-<td class="gt_row gt_right" headers="Kurtosis">24.81953</td>
+<td class="gt_row gt_right" headers="Kurtosis">24.82</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEMOVIENTES</td>
-<td class="gt_row gt_right" headers="Kurtosis">33.30167</td>
+<td class="gt_row gt_right" headers="Kurtosis">33.30</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">AUTOMOTORES</td>
-<td class="gt_row gt_right" headers="Kurtosis">218.88105</td>
+<td class="gt_row gt_right" headers="Kurtosis">218.88</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">BANCOS</td>
-<td class="gt_row gt_right" headers="Kurtosis">129.74066</td>
+<td class="gt_row gt_right" headers="Kurtosis">129.74</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">COMERCIO</td>
-<td class="gt_row gt_right" headers="Kurtosis">52.10447</td>
+<td class="gt_row gt_right" headers="Kurtosis">52.10</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">MOTOCICLETAS</td>
-<td class="gt_row gt_right" headers="Kurtosis">46.30865</td>
+<td class="gt_row gt_right" headers="Kurtosis">46.31</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">PERSONAS</td>
-<td class="gt_row gt_right" headers="Kurtosis">77.70454</td>
+<td class="gt_row gt_right" headers="Kurtosis">77.70</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">PIRATERIA</td>
-<td class="gt_row gt_right" headers="Kurtosis">63.52728</td>
+<td class="gt_row gt_right" headers="Kurtosis">63.53</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">RESIDENCIAS</td>
-<td class="gt_row gt_right" headers="Kurtosis">57.48987</td>
+<td class="gt_row gt_right" headers="Kurtosis">57.49</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES_AT</td>
-<td class="gt_row gt_right" headers="Kurtosis">42.09322</td>
+<td class="gt_row gt_right" headers="Kurtosis">42.09</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES</td>
-<td class="gt_row gt_right" headers="Kurtosis">44.81022</td>
+<td class="gt_row gt_right" headers="Kurtosis">44.81</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SECUESTRO</td>
-<td class="gt_row gt_right" headers="Kurtosis">25.93444</td>
+<td class="gt_row gt_right" headers="Kurtosis">25.93</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">TERRORISMO</td>
-<td class="gt_row gt_right" headers="Kurtosis">142.88902</td>
+<td class="gt_row gt_right" headers="Kurtosis">142.89</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">INTRAFAMILIAR</td>
-<td class="gt_row gt_right" headers="Kurtosis">86.90023</td>
+<td class="gt_row gt_right" headers="Kurtosis">86.90</td>
 </tr>
 </tbody>
 </table>
@@ -1482,26 +1486,27 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Crime Type"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">SD =</span> V1) <span class="sc">%&gt;%</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">V1 =</span> <span class="fu">round</span>(V1, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">SD =</span> V1) <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="zzwzmqgcdh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zzwzmqgcdh table {
+<div id="gqgojbckbq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gqgojbckbq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zzwzmqgcdh thead, #zzwzmqgcdh tbody, #zzwzmqgcdh tfoot, #zzwzmqgcdh tr, #zzwzmqgcdh td, #zzwzmqgcdh th {
+#gqgojbckbq thead, #gqgojbckbq tbody, #gqgojbckbq tfoot, #gqgojbckbq tr, #gqgojbckbq td, #gqgojbckbq th {
   border-style: none;
 }
 
-#zzwzmqgcdh p {
+#gqgojbckbq p {
   margin: 0;
   padding: 0;
 }
 
-#zzwzmqgcdh .gt_table {
+#gqgojbckbq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1527,12 +1532,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_caption {
+#gqgojbckbq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zzwzmqgcdh .gt_title {
+#gqgojbckbq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1544,7 +1549,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#zzwzmqgcdh .gt_subtitle {
+#gqgojbckbq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1556,7 +1561,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#zzwzmqgcdh .gt_heading {
+#gqgojbckbq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1568,13 +1573,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_bottom_border {
+#gqgojbckbq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_col_headings {
+#gqgojbckbq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1589,7 +1594,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_col_heading {
+#gqgojbckbq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1609,7 +1614,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#zzwzmqgcdh .gt_column_spanner_outer {
+#gqgojbckbq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1621,15 +1626,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#zzwzmqgcdh .gt_column_spanner_outer:first-child {
+#gqgojbckbq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zzwzmqgcdh .gt_column_spanner_outer:last-child {
+#gqgojbckbq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zzwzmqgcdh .gt_column_spanner {
+#gqgojbckbq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1641,11 +1646,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#zzwzmqgcdh .gt_spanner_row {
+#gqgojbckbq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zzwzmqgcdh .gt_group_heading {
+#gqgojbckbq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1671,7 +1676,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#zzwzmqgcdh .gt_empty_group_heading {
+#gqgojbckbq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1686,15 +1691,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#zzwzmqgcdh .gt_from_md > :first-child {
+#gqgojbckbq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zzwzmqgcdh .gt_from_md > :last-child {
+#gqgojbckbq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zzwzmqgcdh .gt_row {
+#gqgojbckbq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1713,7 +1718,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#zzwzmqgcdh .gt_stub {
+#gqgojbckbq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1726,7 +1731,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzwzmqgcdh .gt_stub_row_group {
+#gqgojbckbq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1740,15 +1745,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#zzwzmqgcdh .gt_row_group_first td {
+#gqgojbckbq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zzwzmqgcdh .gt_row_group_first th {
+#gqgojbckbq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zzwzmqgcdh .gt_summary_row {
+#gqgojbckbq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1758,16 +1763,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzwzmqgcdh .gt_first_summary_row {
+#gqgojbckbq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_first_summary_row.thick {
+#gqgojbckbq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zzwzmqgcdh .gt_last_summary_row {
+#gqgojbckbq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1777,7 +1782,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_grand_summary_row {
+#gqgojbckbq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1787,7 +1792,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzwzmqgcdh .gt_first_grand_summary_row {
+#gqgojbckbq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1797,7 +1802,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_last_grand_summary_row_top {
+#gqgojbckbq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1807,11 +1812,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_striped {
+#gqgojbckbq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zzwzmqgcdh .gt_table_body {
+#gqgojbckbq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1820,7 +1825,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_footnotes {
+#gqgojbckbq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1834,7 +1839,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_footnote {
+#gqgojbckbq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1843,7 +1848,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzwzmqgcdh .gt_sourcenotes {
+#gqgojbckbq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1857,7 +1862,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzwzmqgcdh .gt_sourcenote {
+#gqgojbckbq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1865,72 +1870,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzwzmqgcdh .gt_left {
+#gqgojbckbq .gt_left {
   text-align: left;
 }
 
-#zzwzmqgcdh .gt_center {
+#gqgojbckbq .gt_center {
   text-align: center;
 }
 
-#zzwzmqgcdh .gt_right {
+#gqgojbckbq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zzwzmqgcdh .gt_font_normal {
+#gqgojbckbq .gt_font_normal {
   font-weight: normal;
 }
 
-#zzwzmqgcdh .gt_font_bold {
+#gqgojbckbq .gt_font_bold {
   font-weight: bold;
 }
 
-#zzwzmqgcdh .gt_font_italic {
+#gqgojbckbq .gt_font_italic {
   font-style: italic;
 }
 
-#zzwzmqgcdh .gt_super {
+#gqgojbckbq .gt_super {
   font-size: 65%;
 }
 
-#zzwzmqgcdh .gt_footnote_marks {
+#gqgojbckbq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zzwzmqgcdh .gt_asterisk {
+#gqgojbckbq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zzwzmqgcdh .gt_indent_1 {
+#gqgojbckbq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zzwzmqgcdh .gt_indent_2 {
+#gqgojbckbq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zzwzmqgcdh .gt_indent_3 {
+#gqgojbckbq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zzwzmqgcdh .gt_indent_4 {
+#gqgojbckbq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zzwzmqgcdh .gt_indent_5 {
+#gqgojbckbq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zzwzmqgcdh .katex-display {
+#gqgojbckbq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zzwzmqgcdh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gqgojbckbq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1945,71 +1950,71 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEXUALES</td>
-<td class="gt_row gt_right" headers="SD">72.4273234</td>
+<td class="gt_row gt_right" headers="SD">72.43</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">EXTORSION</td>
-<td class="gt_row gt_right" headers="SD">28.2974032</td>
+<td class="gt_row gt_right" headers="SD">28.30</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO</td>
-<td class="gt_row gt_right" headers="SD">22.2473414</td>
+<td class="gt_row gt_right" headers="SD">22.25</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO_AT</td>
-<td class="gt_row gt_right" headers="SD">10.9360033</td>
+<td class="gt_row gt_right" headers="SD">10.94</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEMOVIENTES</td>
-<td class="gt_row gt_right" headers="SD">1.9583247</td>
+<td class="gt_row gt_right" headers="SD">1.96</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">AUTOMOTORES</td>
-<td class="gt_row gt_right" headers="SD">41.0024306</td>
+<td class="gt_row gt_right" headers="SD">41.00</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">BANCOS</td>
-<td class="gt_row gt_right" headers="SD">0.2705466</td>
+<td class="gt_row gt_right" headers="SD">0.27</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">COMERCIO</td>
-<td class="gt_row gt_right" headers="SD">90.6639920</td>
+<td class="gt_row gt_right" headers="SD">90.66</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">MOTOCICLETAS</td>
-<td class="gt_row gt_right" headers="SD">92.7418287</td>
+<td class="gt_row gt_right" headers="SD">92.74</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">PERSONAS</td>
-<td class="gt_row gt_right" headers="SD">1051.7137659</td>
+<td class="gt_row gt_right" headers="SD">1051.71</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">PIRATERIA</td>
-<td class="gt_row gt_right" headers="SD">0.5199004</td>
+<td class="gt_row gt_right" headers="SD">0.52</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">RESIDENCIAS</td>
-<td class="gt_row gt_right" headers="SD">60.1003484</td>
+<td class="gt_row gt_right" headers="SD">60.10</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES_AT</td>
-<td class="gt_row gt_right" headers="SD">93.0326537</td>
+<td class="gt_row gt_right" headers="SD">93.03</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES</td>
-<td class="gt_row gt_right" headers="SD">172.6644196</td>
+<td class="gt_row gt_right" headers="SD">172.66</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SECUESTRO</td>
-<td class="gt_row gt_right" headers="SD">0.7958569</td>
+<td class="gt_row gt_right" headers="SD">0.80</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">TERRORISMO</td>
-<td class="gt_row gt_right" headers="SD">0.9130822</td>
+<td class="gt_row gt_right" headers="SD">0.91</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">INTRAFAMILIAR</td>
-<td class="gt_row gt_right" headers="SD">369.1367190</td>
+<td class="gt_row gt_right" headers="SD">369.14</td>
 </tr>
 </tbody>
 </table>
@@ -2031,26 +2036,27 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Crime Type"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Variation =</span> V1) <span class="sc">%&gt;%</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">V1 =</span> <span class="fu">round</span>(V1, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Variation =</span> V1) <span class="sc">%&gt;%</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="ydcnjdwpag" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ydcnjdwpag table {
+<div id="lcoxysuutq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lcoxysuutq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ydcnjdwpag thead, #ydcnjdwpag tbody, #ydcnjdwpag tfoot, #ydcnjdwpag tr, #ydcnjdwpag td, #ydcnjdwpag th {
+#lcoxysuutq thead, #lcoxysuutq tbody, #lcoxysuutq tfoot, #lcoxysuutq tr, #lcoxysuutq td, #lcoxysuutq th {
   border-style: none;
 }
 
-#ydcnjdwpag p {
+#lcoxysuutq p {
   margin: 0;
   padding: 0;
 }
 
-#ydcnjdwpag .gt_table {
+#lcoxysuutq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2076,12 +2082,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_caption {
+#lcoxysuutq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ydcnjdwpag .gt_title {
+#lcoxysuutq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2093,7 +2099,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#ydcnjdwpag .gt_subtitle {
+#lcoxysuutq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2105,7 +2111,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#ydcnjdwpag .gt_heading {
+#lcoxysuutq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2117,13 +2123,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_bottom_border {
+#lcoxysuutq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_col_headings {
+#lcoxysuutq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2138,7 +2144,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_col_heading {
+#lcoxysuutq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2158,7 +2164,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#ydcnjdwpag .gt_column_spanner_outer {
+#lcoxysuutq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2170,15 +2176,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#ydcnjdwpag .gt_column_spanner_outer:first-child {
+#lcoxysuutq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ydcnjdwpag .gt_column_spanner_outer:last-child {
+#lcoxysuutq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ydcnjdwpag .gt_column_spanner {
+#lcoxysuutq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2190,11 +2196,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#ydcnjdwpag .gt_spanner_row {
+#lcoxysuutq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ydcnjdwpag .gt_group_heading {
+#lcoxysuutq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2220,7 +2226,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#ydcnjdwpag .gt_empty_group_heading {
+#lcoxysuutq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2235,15 +2241,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#ydcnjdwpag .gt_from_md > :first-child {
+#lcoxysuutq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ydcnjdwpag .gt_from_md > :last-child {
+#lcoxysuutq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ydcnjdwpag .gt_row {
+#lcoxysuutq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2262,7 +2268,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#ydcnjdwpag .gt_stub {
+#lcoxysuutq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2275,7 +2281,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#ydcnjdwpag .gt_stub_row_group {
+#lcoxysuutq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2289,15 +2295,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#ydcnjdwpag .gt_row_group_first td {
+#lcoxysuutq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ydcnjdwpag .gt_row_group_first th {
+#lcoxysuutq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ydcnjdwpag .gt_summary_row {
+#lcoxysuutq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2307,16 +2313,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#ydcnjdwpag .gt_first_summary_row {
+#lcoxysuutq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_first_summary_row.thick {
+#lcoxysuutq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ydcnjdwpag .gt_last_summary_row {
+#lcoxysuutq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2326,7 +2332,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_grand_summary_row {
+#lcoxysuutq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2336,7 +2342,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#ydcnjdwpag .gt_first_grand_summary_row {
+#lcoxysuutq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2346,7 +2352,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_last_grand_summary_row_top {
+#lcoxysuutq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2356,11 +2362,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_striped {
+#lcoxysuutq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ydcnjdwpag .gt_table_body {
+#lcoxysuutq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2369,7 +2375,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_footnotes {
+#lcoxysuutq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2383,7 +2389,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_footnote {
+#lcoxysuutq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2392,7 +2398,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#ydcnjdwpag .gt_sourcenotes {
+#lcoxysuutq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2406,7 +2412,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#ydcnjdwpag .gt_sourcenote {
+#lcoxysuutq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2414,72 +2420,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#ydcnjdwpag .gt_left {
+#lcoxysuutq .gt_left {
   text-align: left;
 }
 
-#ydcnjdwpag .gt_center {
+#lcoxysuutq .gt_center {
   text-align: center;
 }
 
-#ydcnjdwpag .gt_right {
+#lcoxysuutq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ydcnjdwpag .gt_font_normal {
+#lcoxysuutq .gt_font_normal {
   font-weight: normal;
 }
 
-#ydcnjdwpag .gt_font_bold {
+#lcoxysuutq .gt_font_bold {
   font-weight: bold;
 }
 
-#ydcnjdwpag .gt_font_italic {
+#lcoxysuutq .gt_font_italic {
   font-style: italic;
 }
 
-#ydcnjdwpag .gt_super {
+#lcoxysuutq .gt_super {
   font-size: 65%;
 }
 
-#ydcnjdwpag .gt_footnote_marks {
+#lcoxysuutq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ydcnjdwpag .gt_asterisk {
+#lcoxysuutq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ydcnjdwpag .gt_indent_1 {
+#lcoxysuutq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ydcnjdwpag .gt_indent_2 {
+#lcoxysuutq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ydcnjdwpag .gt_indent_3 {
+#lcoxysuutq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ydcnjdwpag .gt_indent_4 {
+#lcoxysuutq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ydcnjdwpag .gt_indent_5 {
+#lcoxysuutq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ydcnjdwpag .katex-display {
+#lcoxysuutq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ydcnjdwpag div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lcoxysuutq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2494,71 +2500,71 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEXUALES</td>
-<td class="gt_row gt_right" headers="Variation">2.959847</td>
+<td class="gt_row gt_right" headers="Variation">2.96</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">EXTORSION</td>
-<td class="gt_row gt_right" headers="Variation">2.788204</td>
+<td class="gt_row gt_right" headers="Variation">2.79</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO</td>
-<td class="gt_row gt_right" headers="Variation">2.029471</td>
+<td class="gt_row gt_right" headers="Variation">2.03</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO_AT</td>
-<td class="gt_row gt_right" headers="Variation">1.940877</td>
+<td class="gt_row gt_right" headers="Variation">1.94</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEMOVIENTES</td>
-<td class="gt_row gt_right" headers="Variation">2.339591</td>
+<td class="gt_row gt_right" headers="Variation">2.34</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">AUTOMOTORES</td>
-<td class="gt_row gt_right" headers="Variation">4.558327</td>
+<td class="gt_row gt_right" headers="Variation">4.56</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">BANCOS</td>
-<td class="gt_row gt_right" headers="Variation">6.445374</td>
+<td class="gt_row gt_right" headers="Variation">6.45</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">COMERCIO</td>
-<td class="gt_row gt_right" headers="Variation">3.154817</td>
+<td class="gt_row gt_right" headers="Variation">3.15</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">MOTOCICLETAS</td>
-<td class="gt_row gt_right" headers="Variation">2.988657</td>
+<td class="gt_row gt_right" headers="Variation">2.99</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">PERSONAS</td>
-<td class="gt_row gt_right" headers="Variation">4.162550</td>
+<td class="gt_row gt_right" headers="Variation">4.16</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">PIRATERIA</td>
-<td class="gt_row gt_right" headers="Variation">5.053432</td>
+<td class="gt_row gt_right" headers="Variation">5.05</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">RESIDENCIAS</td>
-<td class="gt_row gt_right" headers="Variation">2.573097</td>
+<td class="gt_row gt_right" headers="Variation">2.57</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES_AT</td>
-<td class="gt_row gt_right" headers="Variation">2.440774</td>
+<td class="gt_row gt_right" headers="Variation">2.44</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES</td>
-<td class="gt_row gt_right" headers="Variation">2.367695</td>
+<td class="gt_row gt_right" headers="Variation">2.37</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SECUESTRO</td>
-<td class="gt_row gt_right" headers="Variation">3.465829</td>
+<td class="gt_row gt_right" headers="Variation">3.47</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">TERRORISMO</td>
-<td class="gt_row gt_right" headers="Variation">6.029320</td>
+<td class="gt_row gt_right" headers="Variation">6.03</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">INTRAFAMILIAR</td>
-<td class="gt_row gt_right" headers="Variation">3.393853</td>
+<td class="gt_row gt_right" headers="Variation">3.39</td>
 </tr>
 </tbody>
 </table>
@@ -2591,26 +2597,27 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Crime Type"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MAD =</span> V1) <span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">V1 =</span> <span class="fu">round</span>(V1, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MAD =</span> V1) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="zzmamjehqv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zzmamjehqv table {
+<div id="pdyfjywwla" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pdyfjywwla table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zzmamjehqv thead, #zzmamjehqv tbody, #zzmamjehqv tfoot, #zzmamjehqv tr, #zzmamjehqv td, #zzmamjehqv th {
+#pdyfjywwla thead, #pdyfjywwla tbody, #pdyfjywwla tfoot, #pdyfjywwla tr, #pdyfjywwla td, #pdyfjywwla th {
   border-style: none;
 }
 
-#zzmamjehqv p {
+#pdyfjywwla p {
   margin: 0;
   padding: 0;
 }
 
-#zzmamjehqv .gt_table {
+#pdyfjywwla .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2636,12 +2643,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_caption {
+#pdyfjywwla .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zzmamjehqv .gt_title {
+#pdyfjywwla .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2653,7 +2660,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#zzmamjehqv .gt_subtitle {
+#pdyfjywwla .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2665,7 +2672,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#zzmamjehqv .gt_heading {
+#pdyfjywwla .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2677,13 +2684,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_bottom_border {
+#pdyfjywwla .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_col_headings {
+#pdyfjywwla .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2698,7 +2705,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_col_heading {
+#pdyfjywwla .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2718,7 +2725,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#zzmamjehqv .gt_column_spanner_outer {
+#pdyfjywwla .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2730,15 +2737,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#zzmamjehqv .gt_column_spanner_outer:first-child {
+#pdyfjywwla .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zzmamjehqv .gt_column_spanner_outer:last-child {
+#pdyfjywwla .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zzmamjehqv .gt_column_spanner {
+#pdyfjywwla .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2750,11 +2757,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#zzmamjehqv .gt_spanner_row {
+#pdyfjywwla .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zzmamjehqv .gt_group_heading {
+#pdyfjywwla .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2780,7 +2787,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#zzmamjehqv .gt_empty_group_heading {
+#pdyfjywwla .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2795,15 +2802,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#zzmamjehqv .gt_from_md > :first-child {
+#pdyfjywwla .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zzmamjehqv .gt_from_md > :last-child {
+#pdyfjywwla .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zzmamjehqv .gt_row {
+#pdyfjywwla .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2822,7 +2829,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#zzmamjehqv .gt_stub {
+#pdyfjywwla .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2835,7 +2842,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzmamjehqv .gt_stub_row_group {
+#pdyfjywwla .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2849,15 +2856,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#zzmamjehqv .gt_row_group_first td {
+#pdyfjywwla .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zzmamjehqv .gt_row_group_first th {
+#pdyfjywwla .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zzmamjehqv .gt_summary_row {
+#pdyfjywwla .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2867,16 +2874,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzmamjehqv .gt_first_summary_row {
+#pdyfjywwla .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_first_summary_row.thick {
+#pdyfjywwla .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zzmamjehqv .gt_last_summary_row {
+#pdyfjywwla .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2886,7 +2893,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_grand_summary_row {
+#pdyfjywwla .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2896,7 +2903,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzmamjehqv .gt_first_grand_summary_row {
+#pdyfjywwla .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2906,7 +2913,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_last_grand_summary_row_top {
+#pdyfjywwla .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2916,11 +2923,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_striped {
+#pdyfjywwla .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zzmamjehqv .gt_table_body {
+#pdyfjywwla .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2929,7 +2936,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_footnotes {
+#pdyfjywwla .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2943,7 +2950,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_footnote {
+#pdyfjywwla .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2952,7 +2959,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzmamjehqv .gt_sourcenotes {
+#pdyfjywwla .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2966,7 +2973,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zzmamjehqv .gt_sourcenote {
+#pdyfjywwla .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2974,72 +2981,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zzmamjehqv .gt_left {
+#pdyfjywwla .gt_left {
   text-align: left;
 }
 
-#zzmamjehqv .gt_center {
+#pdyfjywwla .gt_center {
   text-align: center;
 }
 
-#zzmamjehqv .gt_right {
+#pdyfjywwla .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zzmamjehqv .gt_font_normal {
+#pdyfjywwla .gt_font_normal {
   font-weight: normal;
 }
 
-#zzmamjehqv .gt_font_bold {
+#pdyfjywwla .gt_font_bold {
   font-weight: bold;
 }
 
-#zzmamjehqv .gt_font_italic {
+#pdyfjywwla .gt_font_italic {
   font-style: italic;
 }
 
-#zzmamjehqv .gt_super {
+#pdyfjywwla .gt_super {
   font-size: 65%;
 }
 
-#zzmamjehqv .gt_footnote_marks {
+#pdyfjywwla .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zzmamjehqv .gt_asterisk {
+#pdyfjywwla .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zzmamjehqv .gt_indent_1 {
+#pdyfjywwla .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zzmamjehqv .gt_indent_2 {
+#pdyfjywwla .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zzmamjehqv .gt_indent_3 {
+#pdyfjywwla .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zzmamjehqv .gt_indent_4 {
+#pdyfjywwla .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zzmamjehqv .gt_indent_5 {
+#pdyfjywwla .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zzmamjehqv .katex-display {
+#pdyfjywwla .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zzmamjehqv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pdyfjywwla div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3054,71 +3061,71 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEXUALES</td>
-<td class="gt_row gt_right" headers="MAD">7.4130</td>
+<td class="gt_row gt_right" headers="MAD">7.41</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">EXTORSION</td>
-<td class="gt_row gt_right" headers="MAD">2.9652</td>
+<td class="gt_row gt_right" headers="MAD">2.97</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO</td>
-<td class="gt_row gt_right" headers="MAD">4.4478</td>
+<td class="gt_row gt_right" headers="MAD">4.45</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO_AT</td>
-<td class="gt_row gt_right" headers="MAD">2.9652</td>
+<td class="gt_row gt_right" headers="MAD">2.97</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEMOVIENTES</td>
-<td class="gt_row gt_right" headers="MAD">0.0000</td>
+<td class="gt_row gt_right" headers="MAD">0.00</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">AUTOMOTORES</td>
-<td class="gt_row gt_right" headers="MAD">0.0000</td>
+<td class="gt_row gt_right" headers="MAD">0.00</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">BANCOS</td>
-<td class="gt_row gt_right" headers="MAD">0.0000</td>
+<td class="gt_row gt_right" headers="MAD">0.00</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">COMERCIO</td>
-<td class="gt_row gt_right" headers="MAD">5.9304</td>
+<td class="gt_row gt_right" headers="MAD">5.93</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">MOTOCICLETAS</td>
-<td class="gt_row gt_right" headers="MAD">4.4478</td>
+<td class="gt_row gt_right" headers="MAD">4.45</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">PERSONAS</td>
-<td class="gt_row gt_right" headers="MAD">13.3434</td>
+<td class="gt_row gt_right" headers="MAD">13.34</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">PIRATERIA</td>
-<td class="gt_row gt_right" headers="MAD">0.0000</td>
+<td class="gt_row gt_right" headers="MAD">0.00</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">RESIDENCIAS</td>
-<td class="gt_row gt_right" headers="MAD">5.9304</td>
+<td class="gt_row gt_right" headers="MAD">5.93</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES_AT</td>
-<td class="gt_row gt_right" headers="MAD">7.4130</td>
+<td class="gt_row gt_right" headers="MAD">7.41</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES</td>
-<td class="gt_row gt_right" headers="MAD">19.2738</td>
+<td class="gt_row gt_right" headers="MAD">19.27</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SECUESTRO</td>
-<td class="gt_row gt_right" headers="MAD">0.0000</td>
+<td class="gt_row gt_right" headers="MAD">0.00</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">TERRORISMO</td>
-<td class="gt_row gt_right" headers="MAD">0.0000</td>
+<td class="gt_row gt_right" headers="MAD">0.00</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">INTRAFAMILIAR</td>
-<td class="gt_row gt_right" headers="MAD">17.7912</td>
+<td class="gt_row gt_right" headers="MAD">17.79</td>
 </tr>
 </tbody>
 </table>
@@ -3136,26 +3143,27 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"Crime Type"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">MAD/Median</span><span class="st">`</span> <span class="ot">=</span> V1) <span class="sc">%&gt;%</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">V1 =</span> <span class="fu">round</span>(V1, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">MAD/Median</span><span class="st">`</span> <span class="ot">=</span> V1) <span class="sc">%&gt;%</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tvqvbmnseu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tvqvbmnseu table {
+<div id="atftyezbqc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#atftyezbqc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tvqvbmnseu thead, #tvqvbmnseu tbody, #tvqvbmnseu tfoot, #tvqvbmnseu tr, #tvqvbmnseu td, #tvqvbmnseu th {
+#atftyezbqc thead, #atftyezbqc tbody, #atftyezbqc tfoot, #atftyezbqc tr, #atftyezbqc td, #atftyezbqc th {
   border-style: none;
 }
 
-#tvqvbmnseu p {
+#atftyezbqc p {
   margin: 0;
   padding: 0;
 }
 
-#tvqvbmnseu .gt_table {
+#atftyezbqc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3181,12 +3189,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_caption {
+#atftyezbqc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tvqvbmnseu .gt_title {
+#atftyezbqc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3198,7 +3206,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#tvqvbmnseu .gt_subtitle {
+#atftyezbqc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3210,7 +3218,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#tvqvbmnseu .gt_heading {
+#atftyezbqc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3222,13 +3230,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_bottom_border {
+#atftyezbqc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_col_headings {
+#atftyezbqc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3243,7 +3251,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_col_heading {
+#atftyezbqc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3263,7 +3271,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#tvqvbmnseu .gt_column_spanner_outer {
+#atftyezbqc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3275,15 +3283,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#tvqvbmnseu .gt_column_spanner_outer:first-child {
+#atftyezbqc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tvqvbmnseu .gt_column_spanner_outer:last-child {
+#atftyezbqc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tvqvbmnseu .gt_column_spanner {
+#atftyezbqc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3295,11 +3303,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#tvqvbmnseu .gt_spanner_row {
+#atftyezbqc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tvqvbmnseu .gt_group_heading {
+#atftyezbqc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3325,7 +3333,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#tvqvbmnseu .gt_empty_group_heading {
+#atftyezbqc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3340,15 +3348,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#tvqvbmnseu .gt_from_md > :first-child {
+#atftyezbqc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tvqvbmnseu .gt_from_md > :last-child {
+#atftyezbqc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tvqvbmnseu .gt_row {
+#atftyezbqc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3367,7 +3375,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#tvqvbmnseu .gt_stub {
+#atftyezbqc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3380,7 +3388,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#tvqvbmnseu .gt_stub_row_group {
+#atftyezbqc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3394,15 +3402,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#tvqvbmnseu .gt_row_group_first td {
+#atftyezbqc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tvqvbmnseu .gt_row_group_first th {
+#atftyezbqc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tvqvbmnseu .gt_summary_row {
+#atftyezbqc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3412,16 +3420,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#tvqvbmnseu .gt_first_summary_row {
+#atftyezbqc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_first_summary_row.thick {
+#atftyezbqc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tvqvbmnseu .gt_last_summary_row {
+#atftyezbqc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3431,7 +3439,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_grand_summary_row {
+#atftyezbqc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3441,7 +3449,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#tvqvbmnseu .gt_first_grand_summary_row {
+#atftyezbqc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3451,7 +3459,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_last_grand_summary_row_top {
+#atftyezbqc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3461,11 +3469,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_striped {
+#atftyezbqc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tvqvbmnseu .gt_table_body {
+#atftyezbqc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3474,7 +3482,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_footnotes {
+#atftyezbqc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3488,7 +3496,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_footnote {
+#atftyezbqc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3497,7 +3505,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#tvqvbmnseu .gt_sourcenotes {
+#atftyezbqc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3511,7 +3519,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#tvqvbmnseu .gt_sourcenote {
+#atftyezbqc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3519,72 +3527,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#tvqvbmnseu .gt_left {
+#atftyezbqc .gt_left {
   text-align: left;
 }
 
-#tvqvbmnseu .gt_center {
+#atftyezbqc .gt_center {
   text-align: center;
 }
 
-#tvqvbmnseu .gt_right {
+#atftyezbqc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tvqvbmnseu .gt_font_normal {
+#atftyezbqc .gt_font_normal {
   font-weight: normal;
 }
 
-#tvqvbmnseu .gt_font_bold {
+#atftyezbqc .gt_font_bold {
   font-weight: bold;
 }
 
-#tvqvbmnseu .gt_font_italic {
+#atftyezbqc .gt_font_italic {
   font-style: italic;
 }
 
-#tvqvbmnseu .gt_super {
+#atftyezbqc .gt_super {
   font-size: 65%;
 }
 
-#tvqvbmnseu .gt_footnote_marks {
+#atftyezbqc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tvqvbmnseu .gt_asterisk {
+#atftyezbqc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tvqvbmnseu .gt_indent_1 {
+#atftyezbqc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tvqvbmnseu .gt_indent_2 {
+#atftyezbqc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tvqvbmnseu .gt_indent_3 {
+#atftyezbqc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tvqvbmnseu .gt_indent_4 {
+#atftyezbqc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tvqvbmnseu .gt_indent_5 {
+#atftyezbqc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tvqvbmnseu .katex-display {
+#atftyezbqc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tvqvbmnseu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#atftyezbqc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3599,19 +3607,19 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEXUALES</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.235500</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.24</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">EXTORSION</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">HOMICIDIO_AT</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SEMOVIENTES</td>
@@ -3627,15 +3635,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">COMERCIO</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">MOTOCICLETAS</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">PERSONAS</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.334340</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.33</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">PIRATERIA</td>
@@ -3643,15 +3651,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">RESIDENCIAS</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES_AT</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.482600</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.48</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Crime Type">LESIONES</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.133753</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.13</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">SECUESTRO</td>
@@ -3663,7 +3671,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Crime Type">INTRAFAMILIAR</td>
-<td class="gt_row gt_right" headers="MAD/Median">1.270800</td>
+<td class="gt_row gt_right" headers="MAD/Median">1.27</td>
 </tr>
 </tbody>
 </table>
@@ -3684,11 +3692,14 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 </div>
 </div>
 </section>
+<section id="covariance-matrix" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="covariance-matrix"><span class="header-section-number">1.6</span> Covariance matrix</h2>
 </section>
-<section id="graphical-analysis" class="level1 numbered" data-number="2">
-<h1 class="numbered" data-number="2"><span class="header-section-number">2</span> Graphical analysis</h1>
-<section id="distribution-of-crime-data" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="distribution-of-crime-data"><span class="header-section-number">2.1</span> Distribution of Crime Data</h2>
+</section>
+<section id="graphical-analysis" class="level1 unnumbered">
+<h1 class="unnumbered">Graphical analysis</h1>
+<section id="distribution-of-crime-data" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="distribution-of-crime-data"><span class="header-section-number">1.7</span> Distribution of Crime Data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -3721,8 +3732,8 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 </div>
 </div>
 </section>
-<section id="log-transformed-crime-data-distributions" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="log-transformed-crime-data-distributions"><span class="header-section-number">2.2</span> Log-Transformed Crime Data Distributions</h2>
+<section id="log-transformed-crime-data-distributions" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="log-transformed-crime-data-distributions"><span class="header-section-number">1.8</span> Log-Transformed Crime Data Distributions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to long format and apply log transformation</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>delitos_long_log <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
@@ -3779,9 +3790,18 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="hands-on-data-analysis" class="level1 unnumbered">
+<h1 class="unnumbered">Hands-on Data Analysis</h1>
+<ul>
+<li>Divide stations by regions of analysis to explain the spatial correlations.</li>
+<li>Replicate exploratory analysis in the selected regions.</li>
+<li>Load your work by GitHub pull request.</li>
+<li>Define the issue for decision-making.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

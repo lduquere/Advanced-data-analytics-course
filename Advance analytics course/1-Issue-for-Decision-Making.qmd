@@ -61,6 +61,7 @@ delitos_data %>%
   t() %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
   rename(Skewness = V1) %>%
   gt()
 ```
@@ -94,6 +95,7 @@ delitos_data %>%
   t() %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
   rename(Kurtosis = V1) %>%
   gt()
 ```
@@ -126,6 +128,7 @@ delitos_data %>%
   t() %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
   rename(SD = V1) %>%
   gt()
 
@@ -144,6 +147,7 @@ delitos_data %>%
   t() %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
   rename(Variation = V1) %>%
   gt()
 ```
@@ -181,6 +185,7 @@ delitos_data %>%
   t() %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
   rename(MAD = V1) %>%
   gt()
 
@@ -195,6 +200,7 @@ delitos_data %>%
   t() %>%
   as.data.frame() %>%
   tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
   rename(`MAD/Median` = V1) %>%
   gt()
 
@@ -203,7 +209,11 @@ delitos_data %>%
   summary()
 ```
 
-# Graphical analysis {.numbered}
+
+## Covariance Matrix
+
+
+# Graphical analysis {.unnumbered}
 
 ## Distribution of Crime Data
 ```{r}
@@ -289,3 +299,11 @@ ggplot(delitos_long_log, aes(x = `Log Value`)) +
     axis.text.x = element_text(size = 3)  # Reduce the font size of X-axis text
   )
 ```
+
+
+# Hands-on Data Analysis {.unnumbered}
+
+-   Divide stations by regions of analysis to explain the spatial correlations.
+-   Replicate exploratory analysis in the selected regions.
+-   Load your work by GitHub pull request.
+-   Define the issue for decision-making.
