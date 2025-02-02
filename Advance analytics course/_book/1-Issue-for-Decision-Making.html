@@ -250,11 +250,12 @@ window.Quarto = {
   <li><a href="#covariance-matrix-of-log-transformed-data" id="toc-covariance-matrix-of-log-transformed-data" class="nav-link" data-scroll-target="#covariance-matrix-of-log-transformed-data"><span class="header-section-number">1.7</span> Covariance Matrix of Log-Transformed Data</a></li>
   <li><a href="#redundant-variables" id="toc-redundant-variables" class="nav-link" data-scroll-target="#redundant-variables"><span class="header-section-number">1.8</span> Redundant Variables</a></li>
   <li><a href="#global-variability-metric" id="toc-global-variability-metric" class="nav-link" data-scroll-target="#global-variability-metric"><span class="header-section-number">1.9</span> Global Variability Metric</a></li>
+  <li><a href="#precision-matrix" id="toc-precision-matrix" class="nav-link" data-scroll-target="#precision-matrix"><span class="header-section-number">1.10</span> Precision Matrix</a></li>
   </ul></li>
   <li><a href="#graphical-analysis" id="toc-graphical-analysis" class="nav-link" data-scroll-target="#graphical-analysis">Graphical analysis</a>
   <ul class="collapse">
-  <li><a href="#distribution-of-crime-data" id="toc-distribution-of-crime-data" class="nav-link" data-scroll-target="#distribution-of-crime-data"><span class="header-section-number">1.10</span> Distribution of Crime Data</a></li>
-  <li><a href="#log-transformed-crime-data-distributions" id="toc-log-transformed-crime-data-distributions" class="nav-link" data-scroll-target="#log-transformed-crime-data-distributions"><span class="header-section-number">1.11</span> Log-Transformed Crime Data Distributions</a></li>
+  <li><a href="#distribution-of-crime-data" id="toc-distribution-of-crime-data" class="nav-link" data-scroll-target="#distribution-of-crime-data"><span class="header-section-number">1.11</span> Distribution of Crime Data</a></li>
+  <li><a href="#log-transformed-crime-data-distributions" id="toc-log-transformed-crime-data-distributions" class="nav-link" data-scroll-target="#log-transformed-crime-data-distributions"><span class="header-section-number">1.12</span> Log-Transformed Crime Data Distributions</a></li>
   </ul></li>
   <li><a href="#hands-on-data-analysis" id="toc-hands-on-data-analysis" class="nav-link" data-scroll-target="#hands-on-data-analysis">Hands-on Data Analysis</a></li>
   </ul>
@@ -377,23 +378,23 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Skewness =</span> V1) <span class="sc">%&gt;%</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="gpsodyjtis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gpsodyjtis table {
+<div id="vwmwylagmq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vwmwylagmq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gpsodyjtis thead, #gpsodyjtis tbody, #gpsodyjtis tfoot, #gpsodyjtis tr, #gpsodyjtis td, #gpsodyjtis th {
+#vwmwylagmq thead, #vwmwylagmq tbody, #vwmwylagmq tfoot, #vwmwylagmq tr, #vwmwylagmq td, #vwmwylagmq th {
   border-style: none;
 }
 
-#gpsodyjtis p {
+#vwmwylagmq p {
   margin: 0;
   padding: 0;
 }
 
-#gpsodyjtis .gt_table {
+#vwmwylagmq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -419,12 +420,12 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-left-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_caption {
+#vwmwylagmq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gpsodyjtis .gt_title {
+#vwmwylagmq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -436,7 +437,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-width: 0;
 }
 
-#gpsodyjtis .gt_subtitle {
+#vwmwylagmq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -448,7 +449,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-top-width: 0;
 }
 
-#gpsodyjtis .gt_heading {
+#vwmwylagmq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -460,13 +461,13 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_bottom_border {
+#vwmwylagmq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_col_headings {
+#vwmwylagmq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -481,7 +482,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_col_heading {
+#vwmwylagmq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -501,7 +502,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   overflow-x: hidden;
 }
 
-#gpsodyjtis .gt_column_spanner_outer {
+#vwmwylagmq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -513,15 +514,15 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 4px;
 }
 
-#gpsodyjtis .gt_column_spanner_outer:first-child {
+#vwmwylagmq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gpsodyjtis .gt_column_spanner_outer:last-child {
+#vwmwylagmq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gpsodyjtis .gt_column_spanner {
+#vwmwylagmq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -533,11 +534,11 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   width: 100%;
 }
 
-#gpsodyjtis .gt_spanner_row {
+#vwmwylagmq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gpsodyjtis .gt_group_heading {
+#vwmwylagmq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,7 +564,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   text-align: left;
 }
 
-#gpsodyjtis .gt_empty_group_heading {
+#vwmwylagmq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -578,15 +579,15 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   vertical-align: middle;
 }
 
-#gpsodyjtis .gt_from_md > :first-child {
+#vwmwylagmq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gpsodyjtis .gt_from_md > :last-child {
+#vwmwylagmq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gpsodyjtis .gt_row {
+#vwmwylagmq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -605,7 +606,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   overflow-x: hidden;
 }
 
-#gpsodyjtis .gt_stub {
+#vwmwylagmq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -618,7 +619,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#gpsodyjtis .gt_stub_row_group {
+#vwmwylagmq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -632,15 +633,15 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   vertical-align: top;
 }
 
-#gpsodyjtis .gt_row_group_first td {
+#vwmwylagmq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gpsodyjtis .gt_row_group_first th {
+#vwmwylagmq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gpsodyjtis .gt_summary_row {
+#vwmwylagmq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -650,16 +651,16 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#gpsodyjtis .gt_first_summary_row {
+#vwmwylagmq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_first_summary_row.thick {
+#vwmwylagmq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gpsodyjtis .gt_last_summary_row {
+#vwmwylagmq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -669,7 +670,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_grand_summary_row {
+#vwmwylagmq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -679,7 +680,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#gpsodyjtis .gt_first_grand_summary_row {
+#vwmwylagmq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -689,7 +690,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-top-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_last_grand_summary_row_top {
+#vwmwylagmq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -699,11 +700,11 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_striped {
+#vwmwylagmq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gpsodyjtis .gt_table_body {
+#vwmwylagmq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -712,7 +713,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-bottom-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_footnotes {
+#vwmwylagmq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -726,7 +727,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_footnote {
+#vwmwylagmq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -735,7 +736,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#gpsodyjtis .gt_sourcenotes {
+#vwmwylagmq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -749,7 +750,7 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   border-right-color: #D3D3D3;
 }
 
-#gpsodyjtis .gt_sourcenote {
+#vwmwylagmq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -757,72 +758,72 @@ g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3
   padding-right: 5px;
 }
 
-#gpsodyjtis .gt_left {
+#vwmwylagmq .gt_left {
   text-align: left;
 }
 
-#gpsodyjtis .gt_center {
+#vwmwylagmq .gt_center {
   text-align: center;
 }
 
-#gpsodyjtis .gt_right {
+#vwmwylagmq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gpsodyjtis .gt_font_normal {
+#vwmwylagmq .gt_font_normal {
   font-weight: normal;
 }
 
-#gpsodyjtis .gt_font_bold {
+#vwmwylagmq .gt_font_bold {
   font-weight: bold;
 }
 
-#gpsodyjtis .gt_font_italic {
+#vwmwylagmq .gt_font_italic {
   font-style: italic;
 }
 
-#gpsodyjtis .gt_super {
+#vwmwylagmq .gt_super {
   font-size: 65%;
 }
 
-#gpsodyjtis .gt_footnote_marks {
+#vwmwylagmq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gpsodyjtis .gt_asterisk {
+#vwmwylagmq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gpsodyjtis .gt_indent_1 {
+#vwmwylagmq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gpsodyjtis .gt_indent_2 {
+#vwmwylagmq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gpsodyjtis .gt_indent_3 {
+#vwmwylagmq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gpsodyjtis .gt_indent_4 {
+#vwmwylagmq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gpsodyjtis .gt_indent_5 {
+#vwmwylagmq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gpsodyjtis .katex-display {
+#vwmwylagmq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gpsodyjtis div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#vwmwylagmq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -936,23 +937,23 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Kurtosis =</span> V1) <span class="sc">%&gt;%</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="udmtzboxyl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#udmtzboxyl table {
+<div id="sezduhaxuf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sezduhaxuf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#udmtzboxyl thead, #udmtzboxyl tbody, #udmtzboxyl tfoot, #udmtzboxyl tr, #udmtzboxyl td, #udmtzboxyl th {
+#sezduhaxuf thead, #sezduhaxuf tbody, #sezduhaxuf tfoot, #sezduhaxuf tr, #sezduhaxuf td, #sezduhaxuf th {
   border-style: none;
 }
 
-#udmtzboxyl p {
+#sezduhaxuf p {
   margin: 0;
   padding: 0;
 }
 
-#udmtzboxyl .gt_table {
+#sezduhaxuf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -978,12 +979,12 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-left-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_caption {
+#sezduhaxuf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#udmtzboxyl .gt_title {
+#sezduhaxuf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -995,7 +996,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-width: 0;
 }
 
-#udmtzboxyl .gt_subtitle {
+#sezduhaxuf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1007,7 +1008,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-top-width: 0;
 }
 
-#udmtzboxyl .gt_heading {
+#sezduhaxuf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1019,13 +1020,13 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_bottom_border {
+#sezduhaxuf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_col_headings {
+#sezduhaxuf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1040,7 +1041,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_col_heading {
+#sezduhaxuf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1060,7 +1061,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   overflow-x: hidden;
 }
 
-#udmtzboxyl .gt_column_spanner_outer {
+#sezduhaxuf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1072,15 +1073,15 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 4px;
 }
 
-#udmtzboxyl .gt_column_spanner_outer:first-child {
+#sezduhaxuf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#udmtzboxyl .gt_column_spanner_outer:last-child {
+#sezduhaxuf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#udmtzboxyl .gt_column_spanner {
+#sezduhaxuf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1092,11 +1093,11 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   width: 100%;
 }
 
-#udmtzboxyl .gt_spanner_row {
+#sezduhaxuf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#udmtzboxyl .gt_group_heading {
+#sezduhaxuf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1122,7 +1123,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   text-align: left;
 }
 
-#udmtzboxyl .gt_empty_group_heading {
+#sezduhaxuf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1137,15 +1138,15 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   vertical-align: middle;
 }
 
-#udmtzboxyl .gt_from_md > :first-child {
+#sezduhaxuf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#udmtzboxyl .gt_from_md > :last-child {
+#sezduhaxuf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#udmtzboxyl .gt_row {
+#sezduhaxuf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1164,7 +1165,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   overflow-x: hidden;
 }
 
-#udmtzboxyl .gt_stub {
+#sezduhaxuf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1177,7 +1178,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#udmtzboxyl .gt_stub_row_group {
+#sezduhaxuf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1191,15 +1192,15 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   vertical-align: top;
 }
 
-#udmtzboxyl .gt_row_group_first td {
+#sezduhaxuf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#udmtzboxyl .gt_row_group_first th {
+#sezduhaxuf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#udmtzboxyl .gt_summary_row {
+#sezduhaxuf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1209,16 +1210,16 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#udmtzboxyl .gt_first_summary_row {
+#sezduhaxuf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_first_summary_row.thick {
+#sezduhaxuf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#udmtzboxyl .gt_last_summary_row {
+#sezduhaxuf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1228,7 +1229,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_grand_summary_row {
+#sezduhaxuf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1238,7 +1239,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#udmtzboxyl .gt_first_grand_summary_row {
+#sezduhaxuf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1248,7 +1249,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-top-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_last_grand_summary_row_top {
+#sezduhaxuf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1258,11 +1259,11 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_striped {
+#sezduhaxuf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#udmtzboxyl .gt_table_body {
+#sezduhaxuf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1271,7 +1272,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-bottom-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_footnotes {
+#sezduhaxuf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1285,7 +1286,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_footnote {
+#sezduhaxuf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1294,7 +1295,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#udmtzboxyl .gt_sourcenotes {
+#sezduhaxuf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1308,7 +1309,7 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   border-right-color: #D3D3D3;
 }
 
-#udmtzboxyl .gt_sourcenote {
+#sezduhaxuf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1316,72 +1317,72 @@ g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\si
   padding-right: 5px;
 }
 
-#udmtzboxyl .gt_left {
+#sezduhaxuf .gt_left {
   text-align: left;
 }
 
-#udmtzboxyl .gt_center {
+#sezduhaxuf .gt_center {
   text-align: center;
 }
 
-#udmtzboxyl .gt_right {
+#sezduhaxuf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#udmtzboxyl .gt_font_normal {
+#sezduhaxuf .gt_font_normal {
   font-weight: normal;
 }
 
-#udmtzboxyl .gt_font_bold {
+#sezduhaxuf .gt_font_bold {
   font-weight: bold;
 }
 
-#udmtzboxyl .gt_font_italic {
+#sezduhaxuf .gt_font_italic {
   font-style: italic;
 }
 
-#udmtzboxyl .gt_super {
+#sezduhaxuf .gt_super {
   font-size: 65%;
 }
 
-#udmtzboxyl .gt_footnote_marks {
+#sezduhaxuf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#udmtzboxyl .gt_asterisk {
+#sezduhaxuf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#udmtzboxyl .gt_indent_1 {
+#sezduhaxuf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#udmtzboxyl .gt_indent_2 {
+#sezduhaxuf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#udmtzboxyl .gt_indent_3 {
+#sezduhaxuf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#udmtzboxyl .gt_indent_4 {
+#sezduhaxuf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#udmtzboxyl .gt_indent_5 {
+#sezduhaxuf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#udmtzboxyl .katex-display {
+#sezduhaxuf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#udmtzboxyl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sezduhaxuf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1493,23 +1494,23 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">SD =</span> V1) <span class="sc">%&gt;%</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="cxahlzymrb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cxahlzymrb table {
+<div id="fqtdheurla" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fqtdheurla table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cxahlzymrb thead, #cxahlzymrb tbody, #cxahlzymrb tfoot, #cxahlzymrb tr, #cxahlzymrb td, #cxahlzymrb th {
+#fqtdheurla thead, #fqtdheurla tbody, #fqtdheurla tfoot, #fqtdheurla tr, #fqtdheurla td, #fqtdheurla th {
   border-style: none;
 }
 
-#cxahlzymrb p {
+#fqtdheurla p {
   margin: 0;
   padding: 0;
 }
 
-#cxahlzymrb .gt_table {
+#fqtdheurla .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1535,12 +1536,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_caption {
+#fqtdheurla .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cxahlzymrb .gt_title {
+#fqtdheurla .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1552,7 +1553,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#cxahlzymrb .gt_subtitle {
+#fqtdheurla .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1564,7 +1565,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#cxahlzymrb .gt_heading {
+#fqtdheurla .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1576,13 +1577,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_bottom_border {
+#fqtdheurla .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_col_headings {
+#fqtdheurla .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1597,7 +1598,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_col_heading {
+#fqtdheurla .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1617,7 +1618,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#cxahlzymrb .gt_column_spanner_outer {
+#fqtdheurla .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1629,15 +1630,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#cxahlzymrb .gt_column_spanner_outer:first-child {
+#fqtdheurla .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cxahlzymrb .gt_column_spanner_outer:last-child {
+#fqtdheurla .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cxahlzymrb .gt_column_spanner {
+#fqtdheurla .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1649,11 +1650,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#cxahlzymrb .gt_spanner_row {
+#fqtdheurla .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cxahlzymrb .gt_group_heading {
+#fqtdheurla .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1679,7 +1680,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#cxahlzymrb .gt_empty_group_heading {
+#fqtdheurla .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1694,15 +1695,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#cxahlzymrb .gt_from_md > :first-child {
+#fqtdheurla .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cxahlzymrb .gt_from_md > :last-child {
+#fqtdheurla .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cxahlzymrb .gt_row {
+#fqtdheurla .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1721,7 +1722,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#cxahlzymrb .gt_stub {
+#fqtdheurla .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1734,7 +1735,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#cxahlzymrb .gt_stub_row_group {
+#fqtdheurla .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1748,15 +1749,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#cxahlzymrb .gt_row_group_first td {
+#fqtdheurla .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cxahlzymrb .gt_row_group_first th {
+#fqtdheurla .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cxahlzymrb .gt_summary_row {
+#fqtdheurla .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1766,16 +1767,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#cxahlzymrb .gt_first_summary_row {
+#fqtdheurla .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_first_summary_row.thick {
+#fqtdheurla .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cxahlzymrb .gt_last_summary_row {
+#fqtdheurla .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1785,7 +1786,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_grand_summary_row {
+#fqtdheurla .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1795,7 +1796,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#cxahlzymrb .gt_first_grand_summary_row {
+#fqtdheurla .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1805,7 +1806,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_last_grand_summary_row_top {
+#fqtdheurla .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1815,11 +1816,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_striped {
+#fqtdheurla .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cxahlzymrb .gt_table_body {
+#fqtdheurla .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1828,7 +1829,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_footnotes {
+#fqtdheurla .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1842,7 +1843,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_footnote {
+#fqtdheurla .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1851,7 +1852,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#cxahlzymrb .gt_sourcenotes {
+#fqtdheurla .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1865,7 +1866,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#cxahlzymrb .gt_sourcenote {
+#fqtdheurla .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1873,72 +1874,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#cxahlzymrb .gt_left {
+#fqtdheurla .gt_left {
   text-align: left;
 }
 
-#cxahlzymrb .gt_center {
+#fqtdheurla .gt_center {
   text-align: center;
 }
 
-#cxahlzymrb .gt_right {
+#fqtdheurla .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cxahlzymrb .gt_font_normal {
+#fqtdheurla .gt_font_normal {
   font-weight: normal;
 }
 
-#cxahlzymrb .gt_font_bold {
+#fqtdheurla .gt_font_bold {
   font-weight: bold;
 }
 
-#cxahlzymrb .gt_font_italic {
+#fqtdheurla .gt_font_italic {
   font-style: italic;
 }
 
-#cxahlzymrb .gt_super {
+#fqtdheurla .gt_super {
   font-size: 65%;
 }
 
-#cxahlzymrb .gt_footnote_marks {
+#fqtdheurla .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cxahlzymrb .gt_asterisk {
+#fqtdheurla .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cxahlzymrb .gt_indent_1 {
+#fqtdheurla .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cxahlzymrb .gt_indent_2 {
+#fqtdheurla .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cxahlzymrb .gt_indent_3 {
+#fqtdheurla .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cxahlzymrb .gt_indent_4 {
+#fqtdheurla .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cxahlzymrb .gt_indent_5 {
+#fqtdheurla .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cxahlzymrb .katex-display {
+#fqtdheurla .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cxahlzymrb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#fqtdheurla div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2043,23 +2044,23 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Variation =</span> V1) <span class="sc">%&gt;%</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="enzbyquito" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#enzbyquito table {
+<div id="riwecfihbz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#riwecfihbz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#enzbyquito thead, #enzbyquito tbody, #enzbyquito tfoot, #enzbyquito tr, #enzbyquito td, #enzbyquito th {
+#riwecfihbz thead, #riwecfihbz tbody, #riwecfihbz tfoot, #riwecfihbz tr, #riwecfihbz td, #riwecfihbz th {
   border-style: none;
 }
 
-#enzbyquito p {
+#riwecfihbz p {
   margin: 0;
   padding: 0;
 }
 
-#enzbyquito .gt_table {
+#riwecfihbz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2085,12 +2086,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#enzbyquito .gt_caption {
+#riwecfihbz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#enzbyquito .gt_title {
+#riwecfihbz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2102,7 +2103,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#enzbyquito .gt_subtitle {
+#riwecfihbz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2114,7 +2115,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#enzbyquito .gt_heading {
+#riwecfihbz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2126,13 +2127,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#enzbyquito .gt_bottom_border {
+#riwecfihbz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#enzbyquito .gt_col_headings {
+#riwecfihbz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2147,7 +2148,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#enzbyquito .gt_col_heading {
+#riwecfihbz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2167,7 +2168,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#enzbyquito .gt_column_spanner_outer {
+#riwecfihbz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2179,15 +2180,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#enzbyquito .gt_column_spanner_outer:first-child {
+#riwecfihbz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#enzbyquito .gt_column_spanner_outer:last-child {
+#riwecfihbz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#enzbyquito .gt_column_spanner {
+#riwecfihbz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2199,11 +2200,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#enzbyquito .gt_spanner_row {
+#riwecfihbz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#enzbyquito .gt_group_heading {
+#riwecfihbz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2229,7 +2230,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#enzbyquito .gt_empty_group_heading {
+#riwecfihbz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2244,15 +2245,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#enzbyquito .gt_from_md > :first-child {
+#riwecfihbz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#enzbyquito .gt_from_md > :last-child {
+#riwecfihbz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#enzbyquito .gt_row {
+#riwecfihbz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2271,7 +2272,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#enzbyquito .gt_stub {
+#riwecfihbz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2284,7 +2285,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#enzbyquito .gt_stub_row_group {
+#riwecfihbz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2298,15 +2299,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#enzbyquito .gt_row_group_first td {
+#riwecfihbz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#enzbyquito .gt_row_group_first th {
+#riwecfihbz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#enzbyquito .gt_summary_row {
+#riwecfihbz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2316,16 +2317,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#enzbyquito .gt_first_summary_row {
+#riwecfihbz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#enzbyquito .gt_first_summary_row.thick {
+#riwecfihbz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#enzbyquito .gt_last_summary_row {
+#riwecfihbz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2335,7 +2336,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#enzbyquito .gt_grand_summary_row {
+#riwecfihbz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2345,7 +2346,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#enzbyquito .gt_first_grand_summary_row {
+#riwecfihbz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2355,7 +2356,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#enzbyquito .gt_last_grand_summary_row_top {
+#riwecfihbz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2365,11 +2366,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#enzbyquito .gt_striped {
+#riwecfihbz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#enzbyquito .gt_table_body {
+#riwecfihbz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2378,7 +2379,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#enzbyquito .gt_footnotes {
+#riwecfihbz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2392,7 +2393,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#enzbyquito .gt_footnote {
+#riwecfihbz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2401,7 +2402,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#enzbyquito .gt_sourcenotes {
+#riwecfihbz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2415,7 +2416,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#enzbyquito .gt_sourcenote {
+#riwecfihbz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2423,72 +2424,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#enzbyquito .gt_left {
+#riwecfihbz .gt_left {
   text-align: left;
 }
 
-#enzbyquito .gt_center {
+#riwecfihbz .gt_center {
   text-align: center;
 }
 
-#enzbyquito .gt_right {
+#riwecfihbz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#enzbyquito .gt_font_normal {
+#riwecfihbz .gt_font_normal {
   font-weight: normal;
 }
 
-#enzbyquito .gt_font_bold {
+#riwecfihbz .gt_font_bold {
   font-weight: bold;
 }
 
-#enzbyquito .gt_font_italic {
+#riwecfihbz .gt_font_italic {
   font-style: italic;
 }
 
-#enzbyquito .gt_super {
+#riwecfihbz .gt_super {
   font-size: 65%;
 }
 
-#enzbyquito .gt_footnote_marks {
+#riwecfihbz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#enzbyquito .gt_asterisk {
+#riwecfihbz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#enzbyquito .gt_indent_1 {
+#riwecfihbz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#enzbyquito .gt_indent_2 {
+#riwecfihbz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#enzbyquito .gt_indent_3 {
+#riwecfihbz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#enzbyquito .gt_indent_4 {
+#riwecfihbz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#enzbyquito .gt_indent_5 {
+#riwecfihbz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#enzbyquito .katex-display {
+#riwecfihbz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#enzbyquito div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#riwecfihbz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2604,23 +2605,23 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MAD =</span> V1) <span class="sc">%&gt;%</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="oebagimmqz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oebagimmqz table {
+<div id="bwpoiefrfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bwpoiefrfa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oebagimmqz thead, #oebagimmqz tbody, #oebagimmqz tfoot, #oebagimmqz tr, #oebagimmqz td, #oebagimmqz th {
+#bwpoiefrfa thead, #bwpoiefrfa tbody, #bwpoiefrfa tfoot, #bwpoiefrfa tr, #bwpoiefrfa td, #bwpoiefrfa th {
   border-style: none;
 }
 
-#oebagimmqz p {
+#bwpoiefrfa p {
   margin: 0;
   padding: 0;
 }
 
-#oebagimmqz .gt_table {
+#bwpoiefrfa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2646,12 +2647,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_caption {
+#bwpoiefrfa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oebagimmqz .gt_title {
+#bwpoiefrfa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2663,7 +2664,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#oebagimmqz .gt_subtitle {
+#bwpoiefrfa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2675,7 +2676,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#oebagimmqz .gt_heading {
+#bwpoiefrfa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2687,13 +2688,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_bottom_border {
+#bwpoiefrfa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_col_headings {
+#bwpoiefrfa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2708,7 +2709,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_col_heading {
+#bwpoiefrfa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2728,7 +2729,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#oebagimmqz .gt_column_spanner_outer {
+#bwpoiefrfa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2740,15 +2741,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#oebagimmqz .gt_column_spanner_outer:first-child {
+#bwpoiefrfa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oebagimmqz .gt_column_spanner_outer:last-child {
+#bwpoiefrfa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oebagimmqz .gt_column_spanner {
+#bwpoiefrfa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2760,11 +2761,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#oebagimmqz .gt_spanner_row {
+#bwpoiefrfa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oebagimmqz .gt_group_heading {
+#bwpoiefrfa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2790,7 +2791,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#oebagimmqz .gt_empty_group_heading {
+#bwpoiefrfa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2805,15 +2806,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#oebagimmqz .gt_from_md > :first-child {
+#bwpoiefrfa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oebagimmqz .gt_from_md > :last-child {
+#bwpoiefrfa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oebagimmqz .gt_row {
+#bwpoiefrfa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2832,7 +2833,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#oebagimmqz .gt_stub {
+#bwpoiefrfa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2845,7 +2846,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#oebagimmqz .gt_stub_row_group {
+#bwpoiefrfa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2859,15 +2860,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#oebagimmqz .gt_row_group_first td {
+#bwpoiefrfa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oebagimmqz .gt_row_group_first th {
+#bwpoiefrfa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oebagimmqz .gt_summary_row {
+#bwpoiefrfa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2877,16 +2878,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#oebagimmqz .gt_first_summary_row {
+#bwpoiefrfa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_first_summary_row.thick {
+#bwpoiefrfa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oebagimmqz .gt_last_summary_row {
+#bwpoiefrfa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2896,7 +2897,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_grand_summary_row {
+#bwpoiefrfa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2906,7 +2907,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#oebagimmqz .gt_first_grand_summary_row {
+#bwpoiefrfa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2916,7 +2917,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_last_grand_summary_row_top {
+#bwpoiefrfa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2926,11 +2927,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_striped {
+#bwpoiefrfa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oebagimmqz .gt_table_body {
+#bwpoiefrfa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2939,7 +2940,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_footnotes {
+#bwpoiefrfa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2953,7 +2954,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_footnote {
+#bwpoiefrfa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2962,7 +2963,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#oebagimmqz .gt_sourcenotes {
+#bwpoiefrfa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2976,7 +2977,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#oebagimmqz .gt_sourcenote {
+#bwpoiefrfa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2984,72 +2985,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#oebagimmqz .gt_left {
+#bwpoiefrfa .gt_left {
   text-align: left;
 }
 
-#oebagimmqz .gt_center {
+#bwpoiefrfa .gt_center {
   text-align: center;
 }
 
-#oebagimmqz .gt_right {
+#bwpoiefrfa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oebagimmqz .gt_font_normal {
+#bwpoiefrfa .gt_font_normal {
   font-weight: normal;
 }
 
-#oebagimmqz .gt_font_bold {
+#bwpoiefrfa .gt_font_bold {
   font-weight: bold;
 }
 
-#oebagimmqz .gt_font_italic {
+#bwpoiefrfa .gt_font_italic {
   font-style: italic;
 }
 
-#oebagimmqz .gt_super {
+#bwpoiefrfa .gt_super {
   font-size: 65%;
 }
 
-#oebagimmqz .gt_footnote_marks {
+#bwpoiefrfa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oebagimmqz .gt_asterisk {
+#bwpoiefrfa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oebagimmqz .gt_indent_1 {
+#bwpoiefrfa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oebagimmqz .gt_indent_2 {
+#bwpoiefrfa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oebagimmqz .gt_indent_3 {
+#bwpoiefrfa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oebagimmqz .gt_indent_4 {
+#bwpoiefrfa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oebagimmqz .gt_indent_5 {
+#bwpoiefrfa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#oebagimmqz .katex-display {
+#bwpoiefrfa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#oebagimmqz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bwpoiefrfa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3150,23 +3151,23 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">MAD/Median</span><span class="st">`</span> <span class="ot">=</span> V1) <span class="sc">%&gt;%</span></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="zbsfktnuww" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zbsfktnuww table {
+<div id="gnexklsscz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gnexklsscz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zbsfktnuww thead, #zbsfktnuww tbody, #zbsfktnuww tfoot, #zbsfktnuww tr, #zbsfktnuww td, #zbsfktnuww th {
+#gnexklsscz thead, #gnexklsscz tbody, #gnexklsscz tfoot, #gnexklsscz tr, #gnexklsscz td, #gnexklsscz th {
   border-style: none;
 }
 
-#zbsfktnuww p {
+#gnexklsscz p {
   margin: 0;
   padding: 0;
 }
 
-#zbsfktnuww .gt_table {
+#gnexklsscz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3192,12 +3193,12 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-left-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_caption {
+#gnexklsscz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zbsfktnuww .gt_title {
+#gnexklsscz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3209,7 +3210,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-width: 0;
 }
 
-#zbsfktnuww .gt_subtitle {
+#gnexklsscz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3221,7 +3222,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-width: 0;
 }
 
-#zbsfktnuww .gt_heading {
+#gnexklsscz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3233,13 +3234,13 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_bottom_border {
+#gnexklsscz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_col_headings {
+#gnexklsscz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3254,7 +3255,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_col_heading {
+#gnexklsscz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3274,7 +3275,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#zbsfktnuww .gt_column_spanner_outer {
+#gnexklsscz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3286,15 +3287,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 4px;
 }
 
-#zbsfktnuww .gt_column_spanner_outer:first-child {
+#gnexklsscz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zbsfktnuww .gt_column_spanner_outer:last-child {
+#gnexklsscz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zbsfktnuww .gt_column_spanner {
+#gnexklsscz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3306,11 +3307,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   width: 100%;
 }
 
-#zbsfktnuww .gt_spanner_row {
+#gnexklsscz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zbsfktnuww .gt_group_heading {
+#gnexklsscz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3336,7 +3337,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   text-align: left;
 }
 
-#zbsfktnuww .gt_empty_group_heading {
+#gnexklsscz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3351,15 +3352,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: middle;
 }
 
-#zbsfktnuww .gt_from_md > :first-child {
+#gnexklsscz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zbsfktnuww .gt_from_md > :last-child {
+#gnexklsscz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zbsfktnuww .gt_row {
+#gnexklsscz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3378,7 +3379,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   overflow-x: hidden;
 }
 
-#zbsfktnuww .gt_stub {
+#gnexklsscz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3391,7 +3392,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zbsfktnuww .gt_stub_row_group {
+#gnexklsscz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3405,15 +3406,15 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   vertical-align: top;
 }
 
-#zbsfktnuww .gt_row_group_first td {
+#gnexklsscz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zbsfktnuww .gt_row_group_first th {
+#gnexklsscz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zbsfktnuww .gt_summary_row {
+#gnexklsscz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3423,16 +3424,16 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zbsfktnuww .gt_first_summary_row {
+#gnexklsscz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_first_summary_row.thick {
+#gnexklsscz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zbsfktnuww .gt_last_summary_row {
+#gnexklsscz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3442,7 +3443,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_grand_summary_row {
+#gnexklsscz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3452,7 +3453,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zbsfktnuww .gt_first_grand_summary_row {
+#gnexklsscz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3462,7 +3463,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-top-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_last_grand_summary_row_top {
+#gnexklsscz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3472,11 +3473,11 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_striped {
+#gnexklsscz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zbsfktnuww .gt_table_body {
+#gnexklsscz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3485,7 +3486,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-bottom-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_footnotes {
+#gnexklsscz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3499,7 +3500,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_footnote {
+#gnexklsscz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3508,7 +3509,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zbsfktnuww .gt_sourcenotes {
+#gnexklsscz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3522,7 +3523,7 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   border-right-color: #D3D3D3;
 }
 
-#zbsfktnuww .gt_sourcenote {
+#gnexklsscz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3530,72 +3531,72 @@ CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100
   padding-right: 5px;
 }
 
-#zbsfktnuww .gt_left {
+#gnexklsscz .gt_left {
   text-align: left;
 }
 
-#zbsfktnuww .gt_center {
+#gnexklsscz .gt_center {
   text-align: center;
 }
 
-#zbsfktnuww .gt_right {
+#gnexklsscz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zbsfktnuww .gt_font_normal {
+#gnexklsscz .gt_font_normal {
   font-weight: normal;
 }
 
-#zbsfktnuww .gt_font_bold {
+#gnexklsscz .gt_font_bold {
   font-weight: bold;
 }
 
-#zbsfktnuww .gt_font_italic {
+#gnexklsscz .gt_font_italic {
   font-style: italic;
 }
 
-#zbsfktnuww .gt_super {
+#gnexklsscz .gt_super {
   font-size: 65%;
 }
 
-#zbsfktnuww .gt_footnote_marks {
+#gnexklsscz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zbsfktnuww .gt_asterisk {
+#gnexklsscz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zbsfktnuww .gt_indent_1 {
+#gnexklsscz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zbsfktnuww .gt_indent_2 {
+#gnexklsscz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zbsfktnuww .gt_indent_3 {
+#gnexklsscz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zbsfktnuww .gt_indent_4 {
+#gnexklsscz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zbsfktnuww .gt_indent_5 {
+#gnexklsscz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zbsfktnuww .katex-display {
+#gnexklsscz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zbsfktnuww div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gnexklsscz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4710,92 +4711,229 @@ F-statistic: 228.6 on 3 and 13 DF,  p-value: 1.704e-11</code></pre>
 </section>
 <section id="global-variability-metric" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="global-variability-metric"><span class="header-section-number">1.9</span> Global Variability Metric</h2>
-<p>Summarizes the overall variability of the log-transformed data. It is computed as the average of the diagonal elements (variances) of the log-transformed covariance matrix:</p>
+<p>The effective variance and effective standard deviation are measures of the overall variability in the dataset. They are derived from the determinant of the covariance matrix, which captures the generalized variance of the data. For log-transformed data, these metrics are computed similarly but on the log-transformed covariance matrix.</p>
+<p>The effective variance is defined as:</p>
 <p><span class="math inline">\([
-\text{GV} = \frac{1}{p} \text{tr}(\Sigma_{\text{log}})
+\text{Effective Variance} = \det(\Sigma)^{\frac{1}{p}}
 ]\)</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(( \text{tr}(\Sigma_{\text{log}}) )\)</span> is the trace of <span class="math inline">\(( \Sigma_{\text{log}} )\)</span> (sum of its diagonal elements).</li>
+<li><span class="math inline">\(( \Sigma )\)</span> is the covariance matrix.</li>
 <li><span class="math inline">\(( p )\)</span> is the number of variables.</li>
 </ul>
+<p>The effective standard deviation is given by:</p>
+<p><span class="math inline">\([
+\text{Effective Standard Deviation} = \det(\Sigma)^{\frac{1}{2p}}
+]\)</span></p>
+<p>For log-transformed data, the effective variance is computed as:</p>
+<p><span class="math inline">\([
+\text{Log-Transformed Effective Variance} = \det(\log(\Sigma + 1))^{\frac{1}{p}}
+]\)</span></p>
+<p>Similarly, the log-transformed effective standard deviation is:</p>
+<p><span class="math inline">\([
+\text{Log-Transformed Effective Standard Deviation} = \det(\log(\Sigma + 1))^{\frac{1}{2p}}
+]\)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>BANCOS) <span class="sc">%&gt;%</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span>  <span class="co"># Select numeric columns</span></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cov</span>() </span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Effective variance</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Effective Variance</span></span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(cov_matrix)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">ncol</span>(cov_matrix))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 221.1333</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Effective Standard deviation</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(cov_matrix)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="fu">ncol</span>(cov_matrix) <span class="sc">*</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-Transformed Effective Variance</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(<span class="fu">log</span>(cov_matrix <span class="sc">+</span> <span class="dv">1</span>))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">ncol</span>(cov_matrix))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7122481</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Effective Standard Deviation</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(cov_matrix)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="fu">ncol</span>(cov_matrix) <span class="sc">*</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 14.87055</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-Transformed Effective Standard Deviation</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(<span class="fu">log</span>(cov_matrix <span class="sc">+</span> <span class="dv">1</span>))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="fu">ncol</span>(cov_matrix) <span class="sc">*</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.843948</code></pre>
+</div>
+</div>
+</section>
+<section id="precision-matrix" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="precision-matrix"><span class="header-section-number">1.10</span> Precision Matrix</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute precision matrix</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>S_inv <span class="ot">&lt;-</span> <span class="fu">solve</span>(cov_matrix)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display precision matrix (should match example values)</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Precision Matrix (S⁻¹):</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Precision Matrix (S⁻¹):</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(S_inv, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                SEXUALES  EXTORSION  HOMICIDIO HOMICIDIO_AT SEMOVIENTES
+SEXUALES       3.215e-03 -8.726e-04 -1.113e-04   -0.0009164  -0.0012251
+EXTORSION     -8.726e-04  5.321e-03 -1.631e-03    0.0007624  -0.0034363
+HOMICIDIO     -1.113e-04 -1.631e-03  5.643e-03   -0.0017952   0.0034454
+HOMICIDIO_AT  -9.164e-04  7.624e-04 -1.795e-03    0.0321189  -0.0088897
+SEMOVIENTES   -1.225e-03 -3.436e-03  3.445e-03   -0.0088897   0.3040415
+AUTOMOTORES    2.041e-04  7.801e-05  5.364e-05    0.0009725   0.0022573
+COMERCIO      -1.136e-04 -4.552e-04  6.273e-05   -0.0012662   0.0013710
+MOTOCICLETAS   1.840e-04 -4.914e-04  2.753e-05   -0.0017629   0.0001261
+PERSONAS      -4.556e-05 -2.713e-05  4.495e-05    0.0000565   0.0001355
+PIRATERIA      4.604e-03 -1.204e-02 -2.227e-02   -0.0173789  -0.0430171
+RESIDENCIAS    5.810e-04 -1.514e-04  5.440e-04   -0.0008682  -0.0037420
+LESIONES_AT    2.622e-04 -6.614e-05  7.982e-06   -0.0012486   0.0008816
+LESIONES      -5.447e-04  3.361e-04 -6.339e-04    0.0003602  -0.0022676
+SECUESTRO     -8.469e-03  3.365e-03 -1.698e-02   -0.0209465   0.0260576
+TERRORISMO     1.880e-03  2.579e-03 -1.664e-02    0.0058765  -0.0419760
+INTRAFAMILIAR -3.289e-04  2.034e-05  3.086e-05    0.0001188   0.0009585
+              AUTOMOTORES   COMERCIO MOTOCICLETAS   PERSONAS  PIRATERIA
+SEXUALES        2.041e-04 -1.136e-04    1.840e-04 -4.556e-05  0.0046039
+EXTORSION       7.801e-05 -4.552e-04   -4.914e-04 -2.713e-05 -0.0120439
+HOMICIDIO       5.364e-05  6.273e-05    2.753e-05  4.495e-05 -0.0222723
+HOMICIDIO_AT    9.725e-04 -1.266e-03   -1.763e-03  5.650e-05 -0.0173789
+SEMOVIENTES     2.257e-03  1.371e-03    1.261e-04  1.355e-04 -0.0430171
+AUTOMOTORES     1.905e-03  2.246e-04   -3.422e-04 -4.172e-05 -0.0056916
+COMERCIO        2.246e-04  2.621e-03    1.129e-05 -1.678e-04 -0.0055876
+MOTOCICLETAS   -3.422e-04  1.129e-05    4.988e-04  7.604e-06  0.0057563
+PERSONAS       -4.172e-05 -1.678e-04    7.604e-06  1.718e-05  0.0004163
+PIRATERIA      -5.692e-03 -5.588e-03    5.756e-03  4.163e-04  4.2153433
+RESIDENCIAS    -2.185e-04 -1.118e-03    1.138e-04  3.177e-05  0.0049296
+LESIONES_AT     1.391e-04 -8.644e-05    2.942e-05  2.732e-06  0.0019675
+LESIONES       -1.728e-04 -1.614e-04   -1.226e-04  1.738e-05  0.0003136
+SECUESTRO      -4.267e-03  1.652e-03   -3.767e-03 -9.033e-05 -0.1859729
+TERRORISMO      3.628e-03 -1.024e-02   -6.761e-04  4.848e-04  0.2351684
+INTRAFAMILIAR  -1.970e-05  1.695e-04   -2.233e-05 -1.092e-05 -0.0020155
+              RESIDENCIAS LESIONES_AT   LESIONES  SECUESTRO TERRORISMO
+SEXUALES        5.810e-04   2.622e-04 -5.447e-04 -8.469e-03  0.0018804
+EXTORSION      -1.514e-04  -6.614e-05  3.361e-04  3.365e-03  0.0025791
+HOMICIDIO       5.440e-04   7.982e-06 -6.339e-04 -1.698e-02 -0.0166414
+HOMICIDIO_AT   -8.682e-04  -1.249e-03  3.602e-04 -2.095e-02  0.0058765
+SEMOVIENTES    -3.742e-03   8.816e-04 -2.268e-03  2.606e-02 -0.0419760
+AUTOMOTORES    -2.185e-04   1.391e-04 -1.728e-04 -4.267e-03  0.0036280
+COMERCIO       -1.118e-03  -8.644e-05 -1.614e-04  1.652e-03 -0.0102356
+MOTOCICLETAS    1.138e-04   2.942e-05 -1.226e-04 -3.767e-03 -0.0006761
+PERSONAS        3.177e-05   2.732e-06  1.738e-05 -9.033e-05  0.0004848
+PIRATERIA       4.930e-03   1.967e-03  3.136e-04 -1.860e-01  0.2351684
+RESIDENCIAS     2.493e-03  -7.085e-05 -3.653e-04 -5.333e-04  0.0005118
+LESIONES_AT    -7.085e-05   4.446e-04 -2.556e-04  8.076e-04  0.0019385
+LESIONES       -3.653e-04  -2.556e-04  7.088e-04  2.579e-03 -0.0009210
+SECUESTRO      -5.333e-04   8.076e-04  2.579e-03  1.989e+00 -0.3486433
+TERRORISMO      5.118e-04   1.938e-03 -9.210e-04 -3.486e-01  1.4665875
+INTRAFAMILIAR  -1.318e-04   2.102e-05 -9.236e-05  1.602e-03  0.0005950
+              INTRAFAMILIAR
+SEXUALES         -3.289e-04
+EXTORSION         2.034e-05
+HOMICIDIO         3.086e-05
+HOMICIDIO_AT      1.188e-04
+SEMOVIENTES       9.585e-04
+AUTOMOTORES      -1.970e-05
+COMERCIO          1.695e-04
+MOTOCICLETAS     -2.233e-05
+PERSONAS         -1.092e-05
+PIRATERIA        -2.016e-03
+RESIDENCIAS      -1.318e-04
+LESIONES_AT       2.102e-05
+LESIONES         -9.236e-05
+SECUESTRO         1.602e-03
+TERRORISMO        5.950e-04
+INTRAFAMILIAR     1.169e-04</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract first row components</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>first_row <span class="ot">&lt;-</span> S_inv[<span class="dv">1</span>,]</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>diag_element <span class="ot">&lt;-</span> S_inv[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate regression coefficients</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>beta_coefficients <span class="ot">&lt;-</span> <span class="sc">-</span>first_row[<span class="sc">-</span><span class="dv">1</span>]<span class="sc">/</span>diag_element</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(beta_coefficients, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    EXTORSION     HOMICIDIO  HOMICIDIO_AT   SEMOVIENTES   AUTOMOTORES 
+      0.27138       0.03462       0.28501       0.38103      -0.06347 
+     COMERCIO  MOTOCICLETAS      PERSONAS     PIRATERIA   RESIDENCIAS 
+      0.03534      -0.05722       0.01417      -1.43185      -0.18070 
+  LESIONES_AT      LESIONES     SECUESTRO    TERRORISMO INTRAFAMILIAR 
+     -0.08155       0.16940       2.63399      -0.58481       0.10228 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression coefficients</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>delitos <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>BANCOS) <span class="sc">%&gt;%</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric))</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(SEXUALES <span class="sc">~</span> ., <span class="at">data =</span> <span class="fu">data.frame</span>(delitos)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = SEXUALES ~ ., data = data.frame(delitos))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-124.357   -2.738   -0.483    2.601  247.785 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    0.643683   0.620715   1.037 0.299944    
+EXTORSION      0.271378   0.036316   7.473 1.51e-13 ***
+HOMICIDIO      0.034617   0.038244   0.905 0.365570    
+HOMICIDIO_AT   0.285011   0.090904   3.135 0.001759 ** 
+SEMOVIENTES    0.381025   0.280614   1.358 0.174774    
+AUTOMOTORES   -0.063471   0.022154  -2.865 0.004243 ** 
+COMERCIO       0.035340   0.026052   1.357 0.175190    
+MOTOCICLETAS  -0.057217   0.011254  -5.084 4.28e-07 ***
+PERSONAS       0.014169   0.002071   6.843 1.24e-11 ***
+PIRATERIA     -1.431851   1.044847  -1.370 0.170821    
+RESIDENCIAS   -0.180704   0.024888  -7.261 6.91e-13 ***
+LESIONES_AT   -0.081554   0.010477  -7.784 1.51e-14 ***
+LESIONES       0.169405   0.012646  13.396  &lt; 2e-16 ***
+SECUESTRO      2.633992   0.714179   3.688 0.000236 ***
+TERRORISMO    -0.584808   0.616549  -0.949 0.343056    
+INTRAFAMILIAR  0.102284   0.004648  22.007  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.75 on 1199 degrees of freedom
+Multiple R-squared:  0.9407,    Adjusted R-squared:   0.94 
+F-statistic:  1268 on 15 and 1199 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate residual variance</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>residual_variance <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>diag_element</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(residual_variance, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 311.01</code></pre>
 </div>
 </div>
 </section>
 </section>
 <section id="graphical-analysis" class="level1 unnumbered">
 <h1 class="unnumbered">Graphical analysis</h1>
-<section id="distribution-of-crime-data" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="distribution-of-crime-data"><span class="header-section-number">1.10</span> Distribution of Crime Data</h2>
+<section id="distribution-of-crime-data" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="distribution-of-crime-data"><span class="header-section-number">1.11</span> Distribution of Crime Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to a long format for ggplot</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>delitos_long <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span>  <span class="co"># Select only numeric columns</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Crime Type"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create faceted histograms</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delitos_long, <span class="fu">aes</span>(<span class="at">x =</span> Value)) <span class="sc">+</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="st">`</span><span class="at">Crime Type</span><span class="st">`</span>, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span>  <span class="co"># Facet by crime type</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distributions of Crime Data"</span>,</span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Value"</span>,</span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>)  <span class="co"># Reduce the font size of X-axis text</span></span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="1-Issue-for-Decision-Making_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="log-transformed-crime-data-distributions" class="level2" data-number="1.11">
-<h2 data-number="1.11" class="anchored" data-anchor-id="log-transformed-crime-data-distributions"><span class="header-section-number">1.11</span> Log-Transformed Crime Data Distributions</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to long format and apply log transformation</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>delitos_long_log <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">log</span>(.x), <span class="at">.names =</span> <span class="st">"{col}"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># Log transform (log(x + 1) to avoid log(0))</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Crime Type"</span>, <span class="at">values_to =</span> <span class="st">"Log Value"</span>)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create faceted histograms for log-transformed values</span></span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delitos_long_log, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Log Value</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="st">`</span><span class="at">Crime Type</span><span class="st">`</span>, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span>  <span class="co"># Facet by crime type</span></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Log-Transformed Distributions of Crime Data"</span>,</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Log Value"</span>,</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">3</span>)  <span class="co"># Reduce the font size of X-axis text</span></span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to a long format for ggplot</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>delitos_long <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span>  <span class="co"># Select only numeric columns</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Crime Type"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create faceted histograms</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delitos_long, <span class="fu">aes</span>(<span class="at">x =</span> Value)) <span class="sc">+</span></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="st">`</span><span class="at">Crime Type</span><span class="st">`</span>, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span>  <span class="co"># Facet by crime type</span></span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distributions of Crime Data"</span>,</span>
+<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Value"</span>,</span>
+<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb54-20"><a href="#cb54-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>)  <span class="co"># Reduce the font size of X-axis text</span></span>
+<span id="cb54-22"><a href="#cb54-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -4804,30 +4942,61 @@ F-statistic: 228.6 on 3 and 13 DF,  p-value: 1.704e-11</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="log-transformed-crime-data-distributions" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="log-transformed-crime-data-distributions"><span class="header-section-number">1.12</span> Log-Transformed Crime Data Distributions</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to long format and apply log transformation</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>delitos_long_log <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">log</span>(.x), <span class="at">.names =</span> <span class="st">"{col}"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># Log transform (log(x + 1) to avoid log(0))</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Crime Type"</span>, <span class="at">values_to =</span> <span class="st">"Log Value"</span>)</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create faceted histograms for log-transformed values</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delitos_long_log, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Log Value</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="st">`</span><span class="at">Crime Type</span><span class="st">`</span>, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span>  <span class="co"># Facet by crime type</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Log-Transformed Distributions of Crime Data"</span>,</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Log Value"</span>,</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">3</span>)  <span class="co"># Reduce the font size of X-axis text</span></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to long format and apply log transformation</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>delitos_long_log <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">log</span>(.x), <span class="at">.names =</span> <span class="st">"{col}"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># Log transform (log(x + 1) to avoid log(0))</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Crime Type"</span>, <span class="at">values_to =</span> <span class="st">"Log Value"</span>)</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create faceted histograms for log-transformed values</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delitos_long_log, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Log Value</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="st">`</span><span class="at">Crime Type</span><span class="st">`</span>, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span>  <span class="co"># Facet by crime type</span></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Log-Transformed Distributions of Crime Data"</span>,</span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Log Value"</span>,</span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">3</span>)  <span class="co"># Reduce the font size of X-axis text</span></span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="1-Issue-for-Decision-Making_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data to long format and apply log transformation</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>delitos_long_log <span class="ot">&lt;-</span> delitos_data <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">log</span>(.x), <span class="at">.names =</span> <span class="st">"{col}"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># Log transform (log(x + 1) to avoid log(0))</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Crime Type"</span>, <span class="at">values_to =</span> <span class="st">"Log Value"</span>)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create faceted histograms for log-transformed values</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delitos_long_log, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Log Value</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="st">`</span><span class="at">Crime Type</span><span class="st">`</span>, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span>  <span class="co"># Facet by crime type</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Log-Transformed Distributions of Crime Data"</span>,</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Log Value"</span>,</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">3</span>)  <span class="co"># Reduce the font size of X-axis text</span></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="1-Issue-for-Decision-Making_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

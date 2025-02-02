@@ -329,16 +329,36 @@ plot(model)
 
 ## Global Variability Metric
 
-Summarizes the overall variability of the log-transformed data. It is computed as the average of the diagonal elements (variances) of the log-transformed covariance matrix:
+The effective variance and effective standard deviation are measures of the overall variability in the dataset. They are derived from the determinant of the covariance matrix, which captures the generalized variance of the data. For log-transformed data, these metrics are computed similarly but on the log-transformed covariance matrix. 
+
+The effective variance is defined as:
 
 $[
-\text{GV} = \frac{1}{p} \text{tr}(\Sigma_{\text{log}})
+\text{Effective Variance} = \det(\Sigma)^{\frac{1}{p}}
 ]$
 
 where:
 
--   $( \text{tr}(\Sigma_{\text{log}}) )$ is the trace of $( \Sigma_{\text{log}} )$ (sum of its diagonal elements).
+-   $( \Sigma )$ is the covariance matrix.
 -   $( p )$ is the number of variables.
+
+The effective standard deviation is given by:
+
+$[
+\text{Effective Standard Deviation} = \det(\Sigma)^{\frac{1}{2p}}
+]$
+
+For log-transformed data, the effective variance is computed as:
+
+$[
+\text{Log-Transformed Effective Variance} = \det(\log(\Sigma + 1))^{\frac{1}{p}}
+]$
+
+Similarly, the log-transformed effective standard deviation is:
+
+$[
+\text{Log-Transformed Effective Standard Deviation} = \det(\log(\Sigma + 1))^{\frac{1}{2p}}
+]$
 
 ```{r}
 #| echo: true
@@ -350,11 +370,53 @@ cov_matrix <- delitos_data %>%
   select(where(is.numeric)) %>%  # Select numeric columns
   cov() 
 
-# Effective variance
+# Effective Variance
 det(cov_matrix)^(1/ncol(cov_matrix))
 
-# Effective Standard deviation
+# Log-Transformed Effective Variance
+det(log(cov_matrix + 1))^(1/ncol(cov_matrix))
+
+# Effective Standard Deviation
 det(cov_matrix)^(1/(ncol(cov_matrix) * 2))
+
+# Log-Transformed Effective Standard Deviation
+det(log(cov_matrix + 1))^(1/(ncol(cov_matrix) * 2))
+```
+
+## Precision Matrix
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Compute precision matrix
+S_inv <- solve(cov_matrix)
+
+# Display precision matrix (should match example values)
+cat("Precision Matrix (S⁻¹):\n")
+print(S_inv, digits = 4)
+
+# Extract first row components
+first_row <- S_inv[1,]
+diag_element <- S_inv[1,1]
+
+# Calculate regression coefficients
+beta_coefficients <- -first_row[-1]/diag_element
+print(beta_coefficients, digits = 4)
+
+# Regression coefficients
+delitos <- delitos_data %>%
+  select(-BANCOS) %>%
+  select(where(is.numeric))
+
+model <- lm(SEXUALES ~ ., data = data.frame(delitos))
+summary(model)
+(summary(model)$sigma)**2
+
+# Calculate residual variance
+residual_variance <- 1/diag_element
+round(residual_variance, 2)
 ```
 
 # Graphical analysis {.unnumbered}
