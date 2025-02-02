@@ -12,7 +12,7 @@
 #setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
 # packages
-list_packages = c('readxl', 'dplyr', 'moments', 'tidyr', 'tibble', 'gt', 'ggplot2', 'fmsb')
+list_packages = c('readxl', 'dplyr', 'moments', 'tidyr', 'tibble', 'gt', 'ggplot2', 'fmsb', 'car')
 new.packages = list_packages[!(list_packages %in% installed.packages()[,"Package"])]
 if (length(new.packages)) {
   install.packages(new.packages)
@@ -100,7 +100,6 @@ delitos_data %>%
   gt()
 ```
 
-
 ## Coefficient of Variation
 
 The coefficient of variation (CV) measures the relative variability of a dataset, expressed as a percentage. It is defined mathematically as:
@@ -162,8 +161,8 @@ $[
 
 where:
 
-- \( x_i \): Individual data points,
-- \( \text{median}(x) \): Median of the data.
+-   ( x_i ): Individual data points,
+-   ( \text{median}(x) ): Median of the data.
 
 The MAD/Median ratio is a normalized measure of dispersion, calculated as:
 
@@ -209,13 +208,159 @@ delitos_data %>%
   summary()
 ```
 
-
 ## Covariance Matrix
 
+The covariance matrix $( \Sigma )$ captures the pairwise covariances between variables in a dataset. For a dataset $( X )$ with $( n )$ observations and $( p )$ variables, the covariance matrix is defined as:
+
+$[
+\Sigma = \frac{1}{n-1} (X - \bar{X})^\top (X - \bar{X})
+]$
+
+where:
+
+-   $( X )$ is the $( n \times p )$ data matrix.
+-   $( \bar{X} )$ is the $( n \times p )$ matrix of column means.
+-   $( \Sigma )$ is a $( p \times p )$ symmetric matrix.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+delitos_data %>%
+  select(where(is.numeric)) %>%
+  cov() %>%
+  round(2) %>%
+  knitr::kable(digits = 2, caption = "Covariance Matrix")
+```
+
+## Covariance Matrix of Log-Transformed Data
+
+To handle skewed data or reduce the impact of outliers, we apply a log transformation to the data. Let $( Y = \log(X + 1) )$, where $( \log )$ is applied element-wise and $( 1 )$ is a matrix of ones to handle zeros. The log-transformed covariance matrix $( \Sigma_{\text{log}} )$ is:
+
+$[
+\Sigma_{\text{log}} = \frac{1}{n-1} (Y - \bar{Y})^\top (Y - \bar{Y})
+]$
+
+where:
+
+-   $( Y )$ is the $( n \times p )$ log-transformed data matrix.
+-   $( \bar{Y} )$ is the $( n \times p )$ matrix of column means of $( Y )$.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+delitos_data %>%
+  select(where(is.numeric)) %>%
+  mutate(across(everything(), ~ log(.x+1))) %>%  # Log-transform (+1 to handle zeros)
+  cov() %>%
+  round(2) %>%
+  knitr::kable(digits = 2, caption = "Covariance Matrix (Log-Transformed)")
+```
+
+## Redundant Variables
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Covariance matrix 
+cm_delitos_data <- delitos_data %>%
+  select(where(is.numeric)) %>%
+  cov()
+
+# Compute eigenvalues and eigenvectors
+eigen_results <- cm_delitos_data %>% eigen()
+
+# Extract eigenvalues and eigenvectors
+eigenvalues <- eigen_results$values
+eigenvectors <- eigen_results$vectors
+
+# Display eigenvalues and eigenvectors
+print(eigenvalues)
+print(eigenvectors)
+
+# The Smallest Eigenvalues
+sort(eigenvalues, decreasing = FALSE)[1:5]
+
+# The smallest eigenvalue is approximately zero
+smallest_eigenvalue <- min(eigenvalues)
+print(smallest_eigenvalue)
+
+# Corresponding eigenvector
+smallest_eigenvector <- eigenvectors[, which.min(eigenvalues)]
+print(smallest_eigenvector)
+
+# Normalize the eigenvector by dividing by the largest absolute value
+normalized_eigenvector <- smallest_eigenvector / max(abs(smallest_eigenvector))
+print(normalized_eigenvector)
+
+# Sorted normalize the eigenvector
+sort(abs(normalized_eigenvector), decreasing = T)
+
+# Get numeric variable names (order matches eigenvector indices)
+variable_names <- colnames(delitos_data %>% select(where(is.numeric)))
+
+# Sort normalized eigenvector by absolute contribution (descending order)
+sorted_contributions <- sort(abs(normalized_eigenvector), decreasing = TRUE)
+
+# Get the indices of the top contributions
+top_indices <- order(abs(normalized_eigenvector), decreasing = TRUE)[1:4]
+
+# Get the names of the top variables
+top_variable_names <- variable_names[top_indices]
+
+# Print the top variable names
+print(top_variable_names)
+
+# Fit a regression model to confirm the relationship
+model <- lm(BANCOS ~ PIRATERIA + SECUESTRO + TERRORISMO, 
+            data = data.frame(cm_delitos_data))
+summary(model)
+
+# Variance Inflation Factors
+vif(model)
+
+par(mfrow = c(2, 2))
+plot(model)
+```
+
+## Global Variability Metric
+
+Summarizes the overall variability of the log-transformed data. It is computed as the average of the diagonal elements (variances) of the log-transformed covariance matrix:
+
+$[
+\text{GV} = \frac{1}{p} \text{tr}(\Sigma_{\text{log}})
+]$
+
+where:
+
+-   $( \text{tr}(\Sigma_{\text{log}}) )$ is the trace of $( \Sigma_{\text{log}} )$ (sum of its diagonal elements).
+-   $( p )$ is the number of variables.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+cov_matrix <- delitos_data %>%
+  select(-BANCOS) %>%
+  select(where(is.numeric)) %>%  # Select numeric columns
+  cov() 
+
+# Effective variance
+det(cov_matrix)^(1/ncol(cov_matrix))
+
+# Effective Standard deviation
+det(cov_matrix)^(1/(ncol(cov_matrix) * 2))
+```
 
 # Graphical analysis {.unnumbered}
 
 ## Distribution of Crime Data
+
 ```{r}
 #| echo: true
 #| message: false
@@ -273,7 +418,6 @@ ggplot(delitos_long_log, aes(x = `Log Value`)) +
   )
 ```
 
-
 ```{r}
 #| echo: true
 #| message: false
@@ -299,7 +443,6 @@ ggplot(delitos_long_log, aes(x = `Log Value`)) +
     axis.text.x = element_text(size = 3)  # Reduce the font size of X-axis text
   )
 ```
-
 
 # Hands-on Data Analysis {.unnumbered}
 
