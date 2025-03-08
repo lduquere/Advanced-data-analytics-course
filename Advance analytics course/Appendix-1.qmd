@@ -1,5 +1,307 @@
 # Appendix 1 {.appendix, .unnumbered}
 
+### Class 2 - Development
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+# working directory
+#setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+# packages
+list_packages = c('readxl', 'dplyr', 'moments', 'tidyr', 'tibble', 'gt', 'ggplot2', 'fmsb', 'car', 'reshape2', 'knitr', 'gridExtra', 'ggExtra', 'sf', 'leaflet', 'igraph', 'ggraph', 'tidygraph', 'spdep')
+new.packages = list_packages[!(list_packages %in% installed.packages()[,"Package"])]
+if (length(new.packages)) {
+  install.packages(new.packages)
+}
+for (package in list_packages){
+  library(package, character.only = T)
+}
+
+# Load the dataset
+delitos_data <- st_read("data/spatial/crime_spatial_course.gpkg")
+delitos_data <- delitos_data[delitos_data$dpto_ccdgo == c('08'), ] # 08 Atlántico 88  San Andrés y 05 Antioquia
+
+dim(delitos_data)
+summary(delitos_data)
+
+# interactive polygons location
+leaflet(delitos_data) %>%
+  addTiles() %>%  # Base map
+  addPolygons(color = "steelblue", weight = 1, fillOpacity = 0.5)
+
+# quantile
+quantile(delitos_data$sum_24HP, probs = seq(0, 1, 0.1), na.rm = TRUE)
+
+#boxplot
+boxplot(delitos_data$sum_24HP, main = "Boxplot of PERSONAS", horizontal = TRUE)
+```
+
+## Skewness
+
+Skewness measures the asymmetry of a data distribution around its mean. It is defined mathematically as:
+
+$g_1 = \frac{n}{(n-1)(n-2)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^3$
+
+where:
+
+-   $( n )$: Number of observations,
+-   $( x_i )$: Individual data points,
+-   $( \bar{x} )$: Mean of the data,
+-   $( \sigma )$: Standard deviation of the data.
+
+A skewness of $( 0 )$ indicates a perfectly symmetric distribution. Positive skewness $( g_1 > 0 )$ signifies a longer tail on the right side of the distribution, while negative skewness $( g_1 < 0 )$ indicates a longer tail on the left. The code below calculates skewness for all numeric columns in `delitos_data` and presents the results in a formatted table:
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# step by step
+n <- length(delitos_data$sum_24HP) 
+mean_x <- mean(delitos_data$sum_24HP)
+sd_x <- sd(delitos_data$sum_24HP)  # Uses (n-1) denominator
+z_scores <- (delitos_data$sum_24HP - mean_x) / sd_x
+z_cubed <- z_scores^3
+sum_cubed <- sum(z_cubed)
+skewness <- (n / ((n - 1) * (n - 2))) * sum_cubed
+paste0('sum_24HP: ', skewness)
+
+# function
+skewness(delitos_data$sum_24HP, na.rm = TRUE)
+
+# skewness
+delitos_data %>%
+  st_drop_geometry() %>%
+  select(contains('24')) %>%
+  summarise(across(everything(), ~ skewness(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
+  rename(Skewness = V1) %>%
+  gt()
+```
+
+## Kurtosis
+
+Kurtosis measures the heaviness of the tails of a data distribution relative to a normal distribution. It is defined mathematically as:
+
+$g_2 = \left[ \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum \left( \frac{x_i - \bar{x}}{\sigma} \right)^4 \right] - \frac{3(n-1)^2}{(n-2)(n-3)}$
+
+where:
+
+-   $( n )$: Number of observations,
+-   $( x_i )$: Individual data points,
+-   $( \bar{x} )$: Mean of the data,
+-   $( \sigma )$: Standard deviation of the data.
+
+A kurtosis of $( 0 )$ (excess kurtosis) indicates tail behavior similar to a normal distribution. Positive kurtosis $( g_2 > 0 )$ signifies heavier tails and more outliers (leptokurtic), while negative kurtosis $( g_2 < 0 )$ indicates lighter tails and fewer outliers (platykurtic).
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# step by step
+z_fourth <- z_scores^4
+sum_fourth <- sum(z_fourth)
+kurtosis <- ((n * (n + 1)) / ((n - 1) * (n - 2) * (n - 3))) * sum_fourth - (3 * (n - 1)^2) / ((n - 2) * (n - 3))
+print(kurtosis)
+
+# function
+kurtosis(delitos_data$sum_24HP, na.rm = TRUE)
+
+# skewness
+delitos_data %>%
+  st_drop_geometry() %>%
+  select(contains('24')) %>%
+  summarise(across(everything(), ~ kurtosis(.x, na.rm = TRUE))) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
+  rename(Kurtosis = V1) %>%
+  gt()
+```
+
+## Coefficient of Variation
+
+The coefficient of variation (CV) measures the relative variability of a dataset, expressed as a percentage. It is defined mathematically as:
+
+$CV = \left( \frac{\sigma}{\bar{x}} \right) \times 100$
+
+where:
+
+-   $( \sigma )$: Standard deviation of the data,
+-   $( \bar{x} )$: Mean of the data.
+
+The coefficient of variation is particularly useful for comparing the variability of datasets with different units or widely different means. A lower CV indicates less variability relative to the mean, while a higher CV indicates greater variability.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Compute statistics
+mean_val <- mean(delitos_data$sum_24HP, na.rm = TRUE)
+print(mean_val)
+std_dev <- sd(delitos_data$sum_24HP, na.rm = TRUE)
+print(std_dev)
+
+# Compute the range for first standard deviation
+lower_bound <- mean_val - std_dev
+upper_bound <- mean_val + std_dev
+paste0('lower_bound: ', round(lower_bound, 2), ' - upper_bound: ', round(upper_bound, 2))
+
+# Count the number of points within 1 standard deviation
+within_1sd <- sum(delitos_data$sum_24HP >= lower_bound & delitos_data$sum_24HP <= upper_bound, na.rm = TRUE)
+percentage_1sd <- (within_1sd / nrow(delitos_data)) * 100
+paste0('within_1sd: ', round(within_1sd, 2), ' - percentage_1sd: ', round(percentage_1sd, 2))
+
+# Create histogram
+ggplot(delitos_data, aes(x = sum_24HP)) +
+  geom_histogram(binwidth = 5, fill = "blue", alpha = 0.5, color = "black") +
+  
+  # Add vertical lines for mean, median, and 1st SD
+  geom_vline(aes(xintercept = mean_val), color = "red", linetype = "dashed", size = 1.2) +
+  #geom_vline(aes(xintercept = median_val), color = "green", linetype = "dashed", size = 1.2) +
+  geom_vline(aes(xintercept = lower_bound), color = "purple", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = upper_bound), color = "purple", linetype = "dashed", size = 1) +
+  
+  # Labels and title
+  labs(title = "Histogram of AUTOMOTORES with Mean, and 1SD Range",
+       x = "AUTOMOTORES Values", y = "Frequency") +
+  
+  # Add annotation for 1SD range
+  annotate("text", x = mean_val, y = 10, 
+           label = paste(round(percentage_1sd, 1), "1SD", sep = ""), 
+           color = "black", size = 5, hjust = 0.5, vjust = -1) +
+  
+  theme_minimal()
+
+# cv
+paste0('cv: ', round(std_dev / mean_val * 100), 2)
+
+# variation
+delitos_data %>%
+  st_drop_geometry() %>%
+  select(contains('24')) %>%
+  summarise(
+    across(
+      everything(),
+      ~ ifelse(mean(.x, na.rm = TRUE) != 0, 
+               sd(.x, na.rm = TRUE) / mean(.x, na.rm = TRUE), 
+               NA),  # Compute CV safely
+      .names = "{col}"
+    )
+  ) %>%
+  t() %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column(var = "Crime Type") %>%
+  mutate(V1 = round(V1, 2)) %>%
+  rename(Variation = V1) %>%
+  gt()
+```
+
+## Median Absolute Deviation MAD and MAD/median
+
+The Median Absolute Deviation (MAD) is a robust measure of variability that quantifies the dispersion of a dataset. It is defined as the median of the absolute deviations from the median of the data:
+
+$\text{MAD} = \text{median} \left( \left| x_i - \text{median}(x) \right| \right)$
+
+where:
+
+-   ( x_i ): Individual data points,
+-   ( \text{median}(x) ): Median of the data.
+
+The MAD/Median ratio is a normalized measure of dispersion, calculated as:
+
+$[
+\text{MAD/Median} = \frac{\text{MAD}}{\text{median}(x)}
+]$
+
+This ratio provides a scale-independent measure of variability, making it useful for comparing the dispersion of datasets with different units or scales. A higher MAD/Median ratio indicates greater relative variability.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# Compute statistics
+median_val <- median(delitos_data$sum_24HP, na.rm = TRUE)
+# Es normal que de cero porque es una medida de posición 
+print(median_val)
+mad_val <- mad(delitos_data$sum_24HP, na.rm = TRUE)  # Compute MAD
+print(mad_val)
+
+# Compute the range for first standard deviation
+lower_bound <- median_val - mad_val
+upper_bound <- median_val + mad_val
+paste0('lower_bound: ', round(lower_bound, 2), ' - upper_bound: ', round(upper_bound, 2))
+
+# Count the number of points within 1 MAD
+within_1mad <- sum(delitos_data$sum_24HP >= lower_bound & delitos_data$sum_24HP <= upper_bound, na.rm = TRUE)
+percentage_1mad <- (within_1mad / nrow(delitos_data)) * 100
+paste0('within_1mad: ', round(within_1mad, 2), ' - percentage_1mad: ', round(percentage_1mad, 2))
+
+# Create histogram
+ggplot(delitos_data, aes(x = sum_24HP)) +
+  geom_histogram(binwidth = 5, fill = "blue", alpha = 0.5, color = "black") +
+  
+  # Add vertical lines for mean, median, and 1st SD
+  #geom_vline(aes(xintercept = mean_val), color = "red", linetype = "dashed", size = 1.2) +
+  geom_vline(aes(xintercept = median_val), color = "green", linetype = "dashed", size = 1.2) +
+  geom_vline(aes(xintercept = lower_bound), color = "purple", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = upper_bound), color = "purple", linetype = "dashed", size = 1) +
+  
+  # Labels and title
+  labs(title = "Histogram of HP with Median, and 1MAD Range",
+       x = "HP Values", y = "Frequency") +
+  
+  # Add annotation for 1SD range
+  annotate("text", x = median_val, y = 10, 
+           label = paste(within_1mad, "points (", round(percentage_1mad, 1), "1MAD", sep = ""), 
+           color = "black", size = 5, hjust = 0.5, vjust = -1) +
+  
+  theme_minimal()
+
+# MAD/Median
+paste0('MAD/Median: ', round(mad_val / median_val * 100), 2)
+```
+
+## Covariance Matrix
+
+The covariance matrix $( \Sigma )$ captures the pairwise covariances between variables in a dataset. For a dataset $( X )$ with $( n )$ observations and $( p )$ variables, the covariance matrix is defined as:
+
+$\Sigma = \frac{1}{n-1} (X - \bar{X})^\top (X - \bar{X})$
+
+where:
+
+-   $( X )$ is the $( n \times p )$ data matrix.
+-   $( \bar{X} )$ is the $( n \times p )$ matrix of column means.
+-   $( \Sigma )$ is a $( p \times p )$ symmetric matrix.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+delitos_data %>%
+  st_drop_geometry() %>%
+  select(contains("24")) %>%
+  cov() %>%
+  round(2) %>%
+  knitr::kable(digits = 2, caption = "Covariance Matrix")
+
+
 ## Augmented Data Analyst {.unnumbered}
 
+### Class 2 - Analysis
+
+
+
+
 ## Prompts {.unnumbered}
+
+# We did not use prompts for the development of this analysis
